@@ -52,3 +52,19 @@ It will install all plugin that is listed in `#call` block. I've added some more
 
 ![](../images/neovim-3.png)
 
+After all, now we need to enable colorscheme, to make this happen just add `colorscheme [name of colorscheme]` to **init.vim** file. Also it is recommended to use `set termguicolors` before choose a colorscheme.
+
+```markdown
+set termguicolors
+call plug#begin('~/.config/nvim/plugged')
+                                                                               
+Plug 'kyazdani42/blue-moon'
+Plug 'cocopon/iceberg.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'dracula/vim',{'as':'dracula'}
+Plug 'Badacadabra/vim-archery'
+
+call plug#end()
+
+colorscheme archery
+```
