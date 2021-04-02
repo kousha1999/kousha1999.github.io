@@ -66,5 +66,24 @@ Plug 'Badacadabra/vim-archery'
 
 call plug#end()
 
+colorscheme dracula
+```
+
+If you want to change colorscheme for example to archery, just change `colorscheme` value to archery.
+
+```markdown
+set termguicolors
+call plug#begin('~/.config/nvim/plugged')
+                                                                               
+Plug 'kyazdani42/blue-moon'
+Plug 'cocopon/iceberg.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'dracula/vim',{'as':'dracula'}
+Plug 'Badacadabra/vim-archery'
+
+call plug#end()
+
 colorscheme archery
 ```
+
+To remove a plugin, just remove the `Plug ''` for that plugin and then run `nvim`, then enter `:PlugClean` in command mode of nvim.
