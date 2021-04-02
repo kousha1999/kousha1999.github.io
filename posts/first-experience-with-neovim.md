@@ -50,5 +50,5 @@ Then open neovim by `nvim` command then use below command in **command mode**:
 
 It will install all plugin that is listed in `#call` block. I've added some more plugins to install.
 
-![](../images/neovim-2.pnga)
+![](../images/neovim-2.png)
 
