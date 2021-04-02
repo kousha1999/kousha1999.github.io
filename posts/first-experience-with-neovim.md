@@ -9,7 +9,7 @@ Installation is so easy, I'm an Arch Linux user so it is easy as enter below com
 
 You can check the [Neovim Github](https://github.com/neovim/neovim/wiki/Installing-Neovim) for installation steps.
 
-When it is completed, you can run Neovim by `nvim` command.
+When completed, you can run Neovim by `nvim` command.
 
 ![](../images/neovim-01.png)
 
