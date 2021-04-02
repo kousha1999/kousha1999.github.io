@@ -11,7 +11,7 @@ You can check the [Neovim Github](https://github.com/neovim/neovim/wiki/Installi
 
 When completed, you can run Neovim by `nvim` command.
 
-![](../images/neovim-01.png)
+![](../../images/neovim-01.png)
 
 As you can see it is so lightweight and a simple colorscheme. I want to install some plugins to make it more fasion.
 
@@ -56,7 +56,7 @@ Then open neovim by `nvim` command then use below command in **command mode**:
 
 It will install all plugin that is listed in `#call` block. I've added some more plugins to install.
 
-![](../images/neovim-3.png)
+![](../../images/neovim-3.png)
 
 ### Enable Plugin/Colorscheme
 After all, now we need to enable colorscheme, to make this happen just add `colorscheme [name of colorscheme]` to **init.vim** file. Also it is recommended to use `set termguicolors` before choose a colorscheme.
