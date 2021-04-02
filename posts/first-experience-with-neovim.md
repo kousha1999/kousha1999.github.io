@@ -9,7 +9,7 @@ You can check the [Neovim Github](https://github.com/neovim/neovim/wiki/Installi
 
 When it is completed, you can run Neovim by `nvim` command.
 
-![neovim-main](https://github.com/kousha1999/kousha1999.github.io/blob/main/images/neovim-01.png)
+![](https://github.com/kousha1999/kousha1999.github.io/blob/main/images/neovim-01.png)
 
 As you can see it is so lightweight and a simple colorscheme. I want to install some plugins to make it more fasion.
 
