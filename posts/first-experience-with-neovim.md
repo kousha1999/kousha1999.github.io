@@ -1,5 +1,7 @@
 ## My First Experience with Neovim
 
+### Installation
+
 I'm a Vim user but, I love to try new things and this time, I tried Neovim.
 Installation is so easy, I'm an Arch Linux user so it is easy as enter below command.
 
@@ -12,6 +14,8 @@ When it is completed, you can run Neovim by `nvim` command.
 ![](../images/neovim-01.png)
 
 As you can see it is so lightweight and a simple colorscheme. I want to install some plugins to make it more fasion.
+
+### Installing vim-plug
 
 First of all, I going to install [vim-plug](https://github.com/junegunn/vim-plug) which make easier plugin installation process.
 
@@ -31,6 +35,8 @@ call plug#end()
 **~/.config/nvim/plugged**: Installed Plugin will goes here. (create it if it does'nt exist)
 
 Between these 2 calls, We can handle our plugins to install/remove/....
+
+### Installing Dracula Colorscheme
 
 I want to install **Dracula** theme so I use `Plug ''` to install **Dracula** theme, I add `Plug ''` between 2 `#call` block:
 
@@ -52,6 +58,7 @@ It will install all plugin that is listed in `#call` block. I've added some more
 
 ![](../images/neovim-3.png)
 
+### Enable Plugin/Colorscheme
 After all, now we need to enable colorscheme, to make this happen just add `colorscheme [name of colorscheme]` to **init.vim** file. Also it is recommended to use `set termguicolors` before choose a colorscheme.
 
 ```markdown
@@ -85,5 +92,7 @@ call plug#end()
 
 colorscheme archery
 ```
+
+### Remove Plugin/Colorscheme
 
 To remove a plugin, just remove the `Plug ''` for that plugin and then run `nvim`, then enter `:PlugClean` in command mode of nvim.
