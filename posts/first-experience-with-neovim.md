@@ -32,7 +32,7 @@ call plug#end()
 
 Between these 2 calls, We can handle our plugins to install/remove/....
 
-I want to install **Dracula** theme. I want to use `Plug ''` to install **Dracula** theme, I add `Plug ''` between 2 `#call` block:
+I want to install **Dracula** theme so I use `Plug ''` to install **Dracula** theme, I add `Plug ''` between 2 `#call` block:
 
 ```markdown
 #call plug#begin('~/.config/nvim/plugged')
@@ -50,4 +50,5 @@ Then open neovim by `nvim` command then use below command in **command mode**:
 
 It will install all plugin that is listed in `#call` block. I've added some more plugins to install.
 
+![](../images/neovim-2.png)
 
