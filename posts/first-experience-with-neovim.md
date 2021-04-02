@@ -48,4 +48,6 @@ Then open neovim by `nvim` command then use below command in **command mode**:
 
 `:PlugInstall`
 
-It will install all plugin that is listed in `#call` block.
+It will install all plugin that is listed in `#call` block. I've added some more plugins to install.
+
+
