@@ -33,15 +33,27 @@ loader.conf starts during boot while rc.conf starts after boot process. So do no
 `sudo pkg install portmaster`
 
 ### VirtualBox
- 1. `sudo pkg install virtualbox-ose virtualbox-ose-additions`
- 2. Load `vboxdrv` Module with `kldload vboxdrv`
- 3. To make sure Module is always load, add `vboxdrv_load="YES"` and `vboxnet_enable="YES"` to /etc/rc.conf
- 4. `pw groupmod vboxusers -m yourusername`
- 5. `chown root:vboxusers /dev/vboxnetctl`
- 6. `chmod 0660 /dev/vboxnetctl`
- 7. add below configuration into /etc/devfs.conf
+1. `sudo pkg install virtualbox-ose virtualbox-ose-additions`
+2. Load `vboxdrv` Module with `kldload vboxdrv`
+3. To make sure Module is always load, add `vboxdrv_load="YES"` and `vboxnet_enable="YES"` to /etc/rc.conf
+4. `pw groupmod vboxusers -m yourusername`
+5. `chown root:vboxusers /dev/vboxnetctl`
+6. `chmod 0660 /dev/vboxnetctl`
+7. add below configuration into /etc/devfs.conf
 
 ```markdown
 own     vboxnetctl root:vboxusers
 perm    vboxnetctl 0660
 ```
+
+### OpenConnect
+1. `sudo pkg install openconnect`
+2. connect to vpn :)
+`sudo openconnect --user=invoxes [VPN Address]`
+
+### Intel Grapric Driver
+If you did what [How to setup FreeBSD with a riced desktop | unixsheikh](https://unixsheikh.com/tutorials/how-to-setup-freebsd-with-a-riced-desktop-part-3-i3.html) did, you already installed it. :)
+1. `sudo pkg install drm-kmod`
+2. add `kld_list="/boot/modules/i915kms.ko"` in /etc/rc.conf
+3. `sudo pw groupmod video -m [username]`
+4. reboot system and check i915kms is loaded or not (by `kldstat`)
