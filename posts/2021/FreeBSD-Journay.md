@@ -29,6 +29,8 @@ Update Ports:
 /etc/rc.conf vs /boot/loader.conf?
 loader.conf starts during boot while rc.conf starts after boot process. So do not add a driver/service/etc. load in both of them, because it is useless. When something is loaded during boot, it is not going to load again after boot process.
 
+## Packages Installation
+
 ### Portmaster
 `sudo pkg install portmaster`
 
@@ -57,3 +59,18 @@ If you did what [How to setup FreeBSD with a riced desktop | unixsheikh](https:/
 2. add `kld_list="/boot/modules/i915kms.ko"` in /etc/rc.conf
 3. `sudo pw groupmod video -m [username]`
 4. reboot system and check i915kms is loaded or not (by `kldstat`)
+
+## Configurations
+
+Touchpad:
+1. `sudo pkg install xf86-input-synaptics`
+2. create `/usr/local/etc/X11/xorg.conf.d/90-touchpad.conf`
+3. Write Config.
+```markdown
+Section "InputClass"
+	Identifier "touchpad"
+	MatchIsTouchpad "on"
+	Driver "libinput"
+	Option "Tapping" "on"
+EndSection
+```
