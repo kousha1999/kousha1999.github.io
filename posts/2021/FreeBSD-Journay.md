@@ -42,7 +42,6 @@ loader.conf starts during boot while rc.conf starts after boot process. So do no
 5. `chown root:vboxusers /dev/vboxnetctl`
 6. `chmod 0660 /dev/vboxnetctl`
 7. add below configuration into /etc/devfs.conf
-
 ```markdown
 own     vboxnetctl root:vboxusers
 perm    vboxnetctl 0660
