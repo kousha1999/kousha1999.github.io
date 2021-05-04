@@ -8,7 +8,7 @@ We need root user to do these stuff so instead `su` command I preffer to use `su
 ### Sudo
 1. `root# pkg install sudo`
 2. `root# visudo`
-3. add `invoxe ALL=(ALL) ALL`
+3. add `invoxes ALL=(ALL) ALL`
 4. save and exit
 
 Now I can use sudo whenever i need root privilege. Now I'm going to install a Window Manager (WM) and I choose i3 WM.
@@ -34,4 +34,14 @@ loader.conf starts during boot while rc.conf starts after boot process. So do no
 
 ### VirtualBox
  1. `sudo pkg install virtualbox-ose virtualbox-ose-additions`
- 2. 
+ 2. Load `vboxdrv` Module with `kldload vboxdrv`
+ 3. To make sure Module is always load, add `vboxdrv_load="YES"` and `vboxnet_enable="YES"` to /etc/rc.conf
+ 4. `pw groupmod vboxusers -m yourusername`
+ 5. `chown root:vboxusers /dev/vboxnetctl`
+ 6. `chmod 0660 /dev/vboxnetctl`
+ 7. add below configuration into /etc/devfs.conf
+
+```markdown
+own     vboxnetctl root:vboxusers
+perm    vboxnetctl 0660
+```
