@@ -1,9 +1,7 @@
-I'm a GNU/Linux user and I had Arch/Fedora/... distributions for a while. I was passionate about BSDs specially FreeBSD.
-It has a devil-like logo (Beastie :)) which is cute and I like it.
-So I decided to share my experience when I installed it on my laptop as main OS.
+I'm a GNU/Linux user and I had Arch/Fedora/... distributions for a while. I was passionate about BSDs especially FreeBSD. It has a devil-like logo (Beastie :)) which is cute and I like it. So I decided to share my experience when I installed it on my laptop as the main OS.
 
-After installation I had a Terminal which is not good idea to use when you're using it as your daily OS, which made me to insall a GUI.
-We need root user to do these stuff so instead `su` command I preffer to use `sudo`, so I installed it first.
+After installation, I had a Terminal which is not a good idea when you're using an OS as your daily/Personal OS, which made me install a GUI.
+We need root privilege to do some kinds of stuff so instead `su` command I prefer to use `sudo`, so I installed it first.
 
 ### Sudo
 1. `root# pkg install sudo`
