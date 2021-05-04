@@ -74,3 +74,47 @@ Section "InputClass"
 	Option "Tapping" "on"
 EndSection
 ```
+
+## challenge with External Hard Drive :))
+I have an External Hard Drive and my backups and files are stored in that. I connected it to my laptop but FreeBSD didn't recognized it.
+I've used `ls` to check External Hard Drive is detected or not and it was detected.
+
+`ls -l /dev/da*`
+
+Then I used gpart to see my External Hard Drive details.
+
+Command:
+```markdown
+gpart show /dev/da0
+```
+Output:
+```markdown
+=>        63  3907029105  da0  MBR  (1.8T)
+          63  3907024002    1  ntfs  (1.8T)
+  3907024065        5103       - free -  (2.5M)
+```
+Everything was ok.
+Before mount, We must load `fusefs` module by `kldload fusefs` command. Make sure it is loaded by `kldstat | grep fuse` command.
+
+It is obvious if you want load it everytime, use rc.conf file.
+It was detected as `NTFS` so I tried to mount with below command:
+```markdown
+sudo mount -t ntfs-3g /dev/da0s1 /mnt
+```
+but it failed!
+
+To determine what kind of File System really is, I used `fstyp` command.
+
+Command:
+```markdown
+sudo fstyp /dev/da0s1
+```
+Output:
+```markdown
+exfat
+```
+Yep! It is `exfat`. Now I could mount it with below command:
+```markdown
+sudo mount.exfat-fuse /dev/da0s1 /mnt
+```
+Now it worked! You can check it by `ls -l /mnt` command.
