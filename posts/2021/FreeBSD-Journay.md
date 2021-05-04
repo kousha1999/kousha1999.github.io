@@ -64,9 +64,10 @@ If you did what [How to setup FreeBSD with a riced desktop | unixsheikh](https:/
 ## Configurations
 
 Touchpad:
-1. `sudo pkg install xf86-input-synaptics`
-2. create `/usr/local/etc/X11/xorg.conf.d/90-touchpad.conf`
-3. Write Config.
+There are 3 different driver for trackpad. I didn't try all of them but here is a [Reddit Post](https://www.reddit.com/r/linuxquestions/comments/904gdq/libinput_vs_synaptics_vs_mtrack_whats_your) which some experiences are shared by other guys. I use `libinput`, if you want to use `libinput` too, just follow my steps.
+
+1. create `/usr/local/etc/X11/xorg.conf.d/90-touchpad.conf`
+2. Write Config.
 ```markdown
 Section "InputClass"
 	Identifier "touchpad"
