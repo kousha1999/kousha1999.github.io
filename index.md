@@ -1,7 +1,7 @@
 ## Posts
 
 ### May 2021
-[4-May-2021: My FreeBSD journay for First Time](https://kousha1999.github.io/posts/2021/FreeBSD-Journay)
+[4-May-2021: My FreeBSD journey for First Time](https://kousha1999.github.io/posts/2021/FreeBSD-Journey)
 
 ### April 2021
 
