@@ -59,7 +59,7 @@ sudo portmaster --clean-distfiles
 own     vboxnetctl root:vboxusers
 perm    vboxnetctl 0660
 ```
-:warning: I had a problem with VirtualBox during Windows 10 installation and Windows 10 was stuck (froze) during installation, to fix that problem I've changed the storage device type from `SATA Controller` to `IDE Controller` from `Settings -> Storage`.
+I had a problem with VirtualBox during Windows 10 installation and Windows 10 was stuck (froze) during installation, to fix that problem I've changed the storage device type from `SATA Controller` to `IDE Controller` from `Settings -> Storage`.
 
 ### OpenConnect
 1. `sudo pkg install openconnect`
