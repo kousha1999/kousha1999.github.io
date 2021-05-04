@@ -1,4 +1,4 @@
-## My First Experience with Neovim
+# My First Experience with Neovim
 
 ### Installation
 
