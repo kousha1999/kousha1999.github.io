@@ -21,8 +21,7 @@ First of all, I going to install [vim-plug](https://github.com/junegunn/vim-plug
 
 You can simply install it with below command:
 
-`sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'`
+`sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'`
 
 Now we need to enable this plugin, Open `~/.config/nvim/init.vim` file (create if it isn't exist), Insert below configuration into file:
 
