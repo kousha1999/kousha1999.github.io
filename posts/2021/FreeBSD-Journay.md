@@ -30,7 +30,18 @@ loader.conf starts during boot while rc.conf starts after boot process. So do no
 ## Packages Installation
 
 ### Portmaster
-`sudo pkg install portmaster`
+Install portmaster with pkg is simple.
+```markdown
+sudo pkg install portmaster
+```
+now you can install package by `portmaster` tool from ports packages.
+```markdown
+sudo portmaster www/nginx
+```
+You can remove distfiles with portmaster too.
+```markdown
+sudo portmaster --clean-distfiles
+```
 
 ### VirtualBox
 1. `sudo pkg install virtualbox-ose virtualbox-ose-additions`
