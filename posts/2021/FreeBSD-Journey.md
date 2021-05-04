@@ -1,4 +1,4 @@
-# My FreeBSD Journay
+# My FreeBSD Journey
 
 ![](../../images/beastie.logo)
 
