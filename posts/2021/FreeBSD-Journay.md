@@ -50,7 +50,9 @@ perm    vboxnetctl 0660
 ### OpenConnect
 1. `sudo pkg install openconnect`
 2. connect to vpn :)
-`sudo openconnect --user=invoxes [VPN Address]`
+```markdown
+sudo openconnect --user=invoxes [VPN Address]
+```
 
 ### Intel Grapric Driver
 If you did what [How to setup FreeBSD with a riced desktop | unixsheikh](https://unixsheikh.com/tutorials/how-to-setup-freebsd-with-a-riced-desktop-part-3-i3.html) did, you already installed it. :)
