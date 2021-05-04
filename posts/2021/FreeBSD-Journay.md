@@ -8,7 +8,7 @@ We need root user to do these stuff so instead `su` command I preffer to use `su
 ### Sudo
 1. `root# pkg install sudo`
 2. `root# visudo`
-3. add `invoxes ALL=(ALL) ALL`
+3. write `invoxes ALL=(ALL) ALL` in config file
 4. save and exit
 
 Now I can use sudo whenever i need root privilege. Now I'm going to install a Window Manager (WM) and I choose i3 WM.
