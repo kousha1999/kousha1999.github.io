@@ -19,12 +19,12 @@ I like **portmaster** to manage ports packages. It simply install with pkg.
 I have a few things to say before I start:
 Update ports packages index before using it.
 
-Update Ports:
+### Update Ports
 1. `sudo portsnap fetch`
 2. `sudo portsnap extract`
 3. Then update it before install any package from it by `sudo portsnap fetch update`
 
-/etc/rc.conf vs /boot/loader.conf?
+### /etc/rc.conf vs /boot/loader.conf?
 loader.conf starts during boot while rc.conf starts after boot process. So do not add a driver/service/etc. load in both of them, because it is useless. When something is loaded during boot, it is not going to load again after boot process.
 
 ## Packages Installation
