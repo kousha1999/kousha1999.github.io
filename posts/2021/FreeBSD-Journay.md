@@ -27,7 +27,7 @@ Update Ports:
 3. Then update it before install any package from it by `sudo portsnap fetch update`
 
 /etc/rc.conf vs /boot/loader.conf?
-loader.conf starts during boot while rc.conf starts after boot process. So do not add a driver load in both of them, because it is useless. When something is loaded during boot, it is not going to load again after boot process.
+loader.conf starts during boot while rc.conf starts after boot process. So do not add a driver/service/etc. load in both of them, because it is useless. When something is loaded during boot, it is not going to load again after boot process.
 
 ### Portmaster
 `sudo pkg install portmaster`
