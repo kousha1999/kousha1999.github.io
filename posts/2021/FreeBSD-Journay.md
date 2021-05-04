@@ -1,4 +1,5 @@
 # My FreeBSD Journay
+
 ![](../../images/beastie.logo)
 
 I'm a GNU/Linux user and I had Arch/Fedora/... distributions for a while. I was passionate about BSDs especially FreeBSD. It has a devil-like logo (Beastie :)) which is cute and I like it. So I decided to share my experience when I installed it on my laptop as the main OS.
