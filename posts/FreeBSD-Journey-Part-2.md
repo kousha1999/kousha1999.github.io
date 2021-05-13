@@ -4,7 +4,7 @@ mount_msdosfs?
 
 Run BurpSuite in FreeBSD?
 
-mixer / sysctl hw.snd.default_unit?
+mixer / sysctl hw.snd.default_unit / /dev/sndstat file / test audio with /dev/dspX
 
 pkg audit -F
 freebsd-update & freebsd-static
