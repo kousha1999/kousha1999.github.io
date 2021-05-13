@@ -8,3 +8,5 @@ mixer / sysctl hw.snd.default_unit?
 
 pkg audit -F
 freebsd-update & freebsd-static
+
+change $SHELL from classic sh to tcsh with chsh
