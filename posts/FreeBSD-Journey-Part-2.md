@@ -1,0 +1,10 @@
+How to I connected FreeBSD to my Android with ADB?
+
+mount_msdosfs?
+
+Run BurpSuite in FreeBSD?
+
+mixer / sysctl hw.snd.default_unit?
+
+pkg audit -F
+freebsd-update & freebsd-static
