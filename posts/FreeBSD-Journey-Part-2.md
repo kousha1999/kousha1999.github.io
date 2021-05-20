@@ -12,3 +12,6 @@ freebsd-update & freebsd-static
 change $SHELL from classic sh to tcsh with chsh
 
 pcmanfm
+
+xdg-mime default pcmanfm.desktop inode/directory
+xdg-mime default xpdf.desktop application/pdf
