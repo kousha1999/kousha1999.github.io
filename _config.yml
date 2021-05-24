@@ -1,6 +1,6 @@
 #theme: jekyll-theme-minimal
-#theme: jekyll-theme-slate
-theme: jekyll-theme-architect
+theme: jekyll-theme-slate
+#theme: jekyll-theme-architect
 logo: ./images/bavatar.png
 title: INVOXES Blog
 description: Yello. I'm Kousha (@INVOXES). I'm a FreeBSD/Arch user and a Web/Android PenTester. I love Reverse Engineering/Malware Analysis. I'll write down my things in this blog. :)
