@@ -5,7 +5,7 @@
 
 [13-May-2021: Extract PNG Malware from PCAP File](https://kousha1999.github.io/posts/2021/Extract-PNG-Malware-from-PCAP-File)
 
-[24-May-2021: Lemon Duck Malware Analysis](https://kousha1999.github.io/posts/2021/Lemon-Duck-Malware-Analysis.md)
+[24-May-2021: Lemon Duck Malware Analysis](https://kousha1999.github.io/posts/2021/Lemon-Duck-Malware-Analysis)
 
 ### April 2021
 
