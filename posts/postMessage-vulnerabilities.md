@@ -22,7 +22,7 @@ A `postMessage()` syntax is something like:
 targetWindow.postMessage(message, targetOrigin, [transfer]);
 ```
 
-* `targetWindow`: It's the window that takes the message. Just that. :smile: It can be one of the following window :point_down:
+* `targetWindow`: It's the window that takes the message. Just that :). It can be one of the following Window:
   * `window.open()`: This function spawn a new window.
   * `window.opener`: A variable which reference to window that spawned.
   * `window.parent`: 
