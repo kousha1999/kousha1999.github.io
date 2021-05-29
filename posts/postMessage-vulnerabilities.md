@@ -1,5 +1,5 @@
 # postMessage and Misconfigurations
-I'll discuss about postMessage feaure and how it can be vulnerable by wrong way implementation. First I'm going to talk about what is postMessage feature actually,
+I'll discuss about postMessage feature and how it can be vulnerable by wrong way implementation. First I'm going to talk about what is postMessage feature actually,
 then we are going to code and use it, at the end we will take a look at vulnerabilities.
 
 ## What is postMessage?
