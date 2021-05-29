@@ -22,13 +22,12 @@ A `postMessage()` syntax is something like:
 targetWindow.postMessage(message, targetOrigin, [transfer]);
 ```
 
-
 * `targetWindow`: It's the window that takes the message. Just that. :smile: It can be one of the following window :point_down:
-  * `window.open()`
-  * `window.opener`
-  * `window.parent`
-  * `window.frames`
-  * `HTMLIFrameElement.contentWindow`
+  * `window.open()`: This function spawn a new window.
+  * `window.opener`: A variable which reference to window that spawned.
+  * `window.parent`: 
+  * `window.frames`: 
+  * `HTMLIFrameElement.contentWindow`: 
 
 * `message`: This is the data you want to send. The data will serialized that this feature let you send data objects like a charm. The data will deserialize in the postMessage receiver.
 
