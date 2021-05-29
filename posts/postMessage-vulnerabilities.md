@@ -13,7 +13,7 @@ our request will send but the response will return an error. In a word **Origin*
 >Origin = Protocol + Domain + Port
 
 
-SOP Will return an error in response if one of the protocol, domain or even port change. 
+SOP Will return an error in response if one of the **protocol**, **domain** or even **port** change. 
 postMessage provided a secure way that let you bypass this security mechanism.
 
 A `postMessage()` syntax is something like:
@@ -21,5 +21,7 @@ A `postMessage()` syntax is something like:
 ```javascript
 targetWindow.postMessage(message, targetOrigin, [transfer]);
 ```
+* `targetWindow`: 
+* `message`: This is the data you want to send. The data will serialized that this feature let you send data objects like a charm. The data will deserialize in the postMessage receiver.
 
-`message`: This is the data you want to send. The data will serialized that this feature let you send data objects like a charm. The data will deserialize in the postMessage receiver.
+* `targetOrigin`: In the second parameter of `postMessage()` you can define the target (receiver) origin, also its value can be `*` that we will cover it later in this post.
