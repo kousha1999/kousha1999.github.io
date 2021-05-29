@@ -21,6 +21,7 @@ A `postMessage()` syntax is something like:
 ```javascript
 targetWindow.postMessage(message, targetOrigin, [transfer]);
 ```
+
 * `targetWindow`: It's the window that takes the message. Just that. :smile: It can be one of the following window :point_down:
   * `window.open()`
   * `window.opener`
