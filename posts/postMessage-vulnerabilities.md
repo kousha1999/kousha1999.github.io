@@ -25,8 +25,8 @@ targetWindow.postMessage(message, targetOrigin, [transfer]);
 * `targetWindow`: It's the window that takes the message. Just that :). It can be one of the following Window:
   * `window.open()`: This function spawn a new window.
   * `window.opener`: A variable which reference to window that spawned.
-  * `window.parent`: 
-  * `window.frames`: 
+  * `window.parent`: It's a reference to the parent of the current window or subframe.
+  * `window.frames`: Basically it just return an array of frames. frames are accessible by [interator] notation.
   * `HTMLIFrameElement.contentWindow`: 
 
 * `message`: This is the data you want to send. The data will serialized that this feature let you send data objects like a charm. The data will deserialize in the postMessage receiver.
