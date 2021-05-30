@@ -59,7 +59,8 @@ Now we want to write a code that send a data to an `iframe`.
 ```
 
 It's so much easy. Right?! :)
-sender.html
+
+**sender.html:**
 ```html
 <html>
  <head></head>
@@ -82,3 +83,4 @@ sender.html
    </script>
 </html>
 ```
+First we take the Window object of the `iframe` and the message which we want to send, then we set a `function()` for `onsubmit` event of form, that call `postMessage()` on iframe Window object. The `*` means this message can send to anyone, actually you can specify the origin in that, but we set it as `*` which means it could be anyone (any origin).
