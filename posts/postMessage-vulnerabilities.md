@@ -118,3 +118,7 @@ Three vulnerabilities can occur in postMessage.
 * Sender Origin is set to `*`
 * Receiver does not verify the origin of the sender
 * Receiver does not sanitize the data which received
+
+The first one is obvious and we pointed out before. Now I want to show you how to abuse the second and third misconfigurations.
+
+As we already discussed, receiver wait for an event (based on the type of `addEventListener()`) then a function will call, but we didn't said who can send data to receiver?! There is a simple answer, **EVERYONE**!
