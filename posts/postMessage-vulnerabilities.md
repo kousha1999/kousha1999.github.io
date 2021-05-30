@@ -114,3 +114,7 @@ Now we need to code the receiver of `postMessage()`. I just want to write what r
 Now we know how a `postMessage()` work. Let's move on and explain what vulnerabilities may occur.
 
 ## postMessage Vulnerabilities
+Three vulnerabilities can occur in postMessage.
+* Sender Origin is set to `*`
+* Receiver does not verify the origin of the sender
+* Receiver does not sanitize the data which received
