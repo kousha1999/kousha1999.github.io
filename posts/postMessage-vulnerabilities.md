@@ -76,14 +76,14 @@ It's so much easy. Right?! :)
     var form       = document.getElementById("form1");
     var msg        = document.getElementById("message").value;
     form.onsubmit = function() {
-      ifrmwindow.postMessage(msg, "*");
+      ifrmwindow.postMessage(msg, "http://domain-b.com");
       return false;
       }
     }
    </script>
 </html>
 ```
-First we take the Window object of the `iframe` and the message which we want to send, then we set a `function()` for `onsubmit` event of form, that call `postMessage()` on iframe Window object. The `*` means this message can send to anyone, actually you can specify the origin in that, but we set it as `*` which means it could be anyone (any origin).
+First we take the Window object of the `iframe` and the message which we want to send, then we set a `function()` for `onsubmit` event of form, that call `postMessage()` on iframe Window object.You can also set `*` instead of `http://domain-b.com`. The `*` means this message can send to anyone, actually you can specify the origin in that, but we set it as `*` which means it could be anyone (any origin), sooo... Never do that in production stage. :))
 
 Now we need to code the receiver of `postMessage()`. I just want to write what receiver got in the page.
 
@@ -107,3 +107,4 @@ Now we need to code the receiver of `postMessage()`. I just want to write what r
   </script>
 </html>
 ```
+`addEventListener()` will wait for an event, if it receive an event it will call a function which specified. `attachEvent` is like `addEventListener()` but instead for **Internet Explorer** and **Opera**.
