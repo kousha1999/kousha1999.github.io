@@ -60,7 +60,7 @@ Now we want to write a code that send a data to an `iframe`.
 
 It's so much easy. Right?! :)
 
-**sender.html:**
+**hxxp://domain-a.com/sender.html:**
 ```html
 <html>
  <head></head>
@@ -84,3 +84,26 @@ It's so much easy. Right?! :)
 </html>
 ```
 First we take the Window object of the `iframe` and the message which we want to send, then we set a `function()` for `onsubmit` event of form, that call `postMessage()` on iframe Window object. The `*` means this message can send to anyone, actually you can specify the origin in that, but we set it as `*` which means it could be anyone (any origin).
+
+Now we need to code the receiver of `postMessage()`. I just want to write what receiver got in the page.
+
+**hxxp://domain-b.com/receiver.html:**
+```html
+<html>
+ <head></head>
+ <body>
+  <p id="received-message">Nothing got yet!</p>
+  <script>
+   function displayMessage(event) {
+    document.write(event.origin);
+    msg = "Message: " + event.data;
+    document.getElementById("received-message").innerHTML = message;
+   }
+   
+   if (window.addEventListener)
+    window.addEventListener("message", displayMessage, false);
+   else
+    window.attachEvent("onmessage", displayMessage);
+  </script>
+</html>
+```
