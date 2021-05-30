@@ -108,3 +108,9 @@ Now we need to code the receiver of `postMessage()`. I just want to write what r
 </html>
 ```
 `addEventListener()` will wait for an event, if it receive an event it will call a function which specified. `attachEvent()` is like `addEventListener()` but instead for **Internet Explorer** and **Opera**. `"message"` is the **type** of event that we waiting for. displayMessage is a function which will be call when we get what we waiting for (`"message"`).
+
+![](https://user-images.githubusercontent.com/36133745/120114723-c4255180-c195-11eb-9257-118a282b77de.gif)
+
+Now we know how a `postMessage()` work. Let's move on and explain what vulnerabilities may occur.
+
+## postMessage Vulnerabilities
