@@ -57,3 +57,28 @@ Now we want to write a code that send a data to an `iframe`.
 │                                │
 └────────────────────────────────┘
 ```
+
+It's so much easy. Right?! :)
+sender.html
+```html
+<html>
+ <head></head>
+ <body>
+  <form id="form1" action="/">
+   <input type="text" id="message" placeholder="Write message here...">
+   <input type="submit" value="Send Msg">
+  </form>
+  <iframe id="ifrm" src="http://domain-b.com/receiver.html">
+   <script>
+    window.onload=function() {
+    var ifrmwindow = document.getElementById("ifrm").contentWindow;
+    var form       = document.getElementById("form1");
+    var msg        = document.getElementById("message").value;
+    form.onsubmit = function() {
+      ifrmwindow.postMessage(msg, "*");
+      return false;
+      }
+    }
+   </script>
+</html>
+```
