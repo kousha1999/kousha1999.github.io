@@ -32,3 +32,28 @@ targetWindow.postMessage(message, targetOrigin, [transfer]);
 * `message`: This is the data you want to send. The data will serialized that this feature let you send data objects like a charm. The data will deserialize in the postMessage receiver.
 
 * `targetOrigin`: In the second parameter of `postMessage()` you can define the target (receiver) origin, also its value can be `*` that we will cover it later in this post.
+
+### Data Sender
+Now we want to write a code that send a data to an `iframe`.
+
+```
+┌────────────────────────────────┐
+│          domain-a.com          │
+│  ┌─────────────────────────┐   │
+│  │                         │   │
+│  │                         │   │
+│  │         <iframe>        │   │
+│  │                         │   │
+│  │       domain-b.com      │   │
+│  └─────────────────────────┘   │
+│                                │
+│  ┌─────────────────────────┐   │
+│  │Write message here...    │   │
+│  └─────────────────────────┘   │
+│                                │
+│        ┌─────────────┐         │
+│        │  Send Msg   │         │
+│        └─────────────┘         │
+│                                │
+└────────────────────────────────┘
+```
