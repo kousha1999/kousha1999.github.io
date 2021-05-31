@@ -179,4 +179,12 @@ Now it is better! :)
 Now we get to the last misconfiguration. Consider a simple chatroom is implemented by the `postMessage()` functionality. There is a server which accept data from anywhere, It shows everyone data (message) that sent just like the first example that we implemented. The receiver shows the message by `innerHTML` JavaScript function.
 
 ### Break (DOM-Base XSS)
-Cross-Site Scripting is a vulnerability that occur when user inputs reflect somewhere without sanitizing. It leds attacker to inject a script into the page that JavaScript is the most common one scripting language to exploit this vulnerability. 
+Cross-Site Scripting (a.k.a XSS) is a vulnerability that occur when user inputs reflect somewhere without sanitizing. It leds attacker to inject a script into the page that JavaScript is the most common one scripting language to exploit this vulnerability. XSS has different types:
+* Reflected
+* Stored
+* DOM
+There are also other types like mXSS or Self-XSS, But they are not an actual type, they can be one of the 3 main types.
+If you inject a JavaScript code into the vulnerable JavaScript code (which means it doesn't need to send a request to server for injecting JavaScript), it's a DOM-based XSS.
+
+### Back to the Future (postMessage)
+`innerHTML` is one of the vulnerable Javascript property that leads to DOM-based XSS. As you can see in the first example of **receiver.html**, the received data (message) are displayed by `innerHTML`. 
