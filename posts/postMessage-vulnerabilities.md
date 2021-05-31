@@ -121,4 +121,57 @@ Three vulnerabilities can occur in postMessage.
 
 The first one is obvious and we pointed out before. Now I want to show you how to abuse the second and third misconfigurations.
 
-As we already discussed, receiver wait for an event (based on the type of `addEventListener()`) then a function will call, but we didn't said who can send data to receiver?! There is a simple answer, **EVERYONE**!
+As we already discussed, receiver wait for an event (based on the type of `addEventListener()`) then a function will call, but we didn't said who can send data to receiver?! It has a simple answer, **EVERYONE**!
+
+So everone can send data to any receiver, It is on receiver own to check the sender origin, If it doesn't, the receiver "event listener" will accept any event. It means an attacker also can send a malicious data to receiver. A secure way to fix this issue is checking the Origin. It just needs a `if` condition. Let's explain by an example.
+
+**hxxp://domain-b.com/receiver.html:**
+```html
+<html>
+ <head></head>
+ <body>
+  <p id="received-message">Nothing got yet!</p>
+  <script>
+   function displayMessage(event) {
+    if (evt.origin.startsWith != "http://domain-a.com") {
+     console.log("Invalid Origin! Do Not try Hacking at home. :)");
+    } else {
+     document.write(event.origin);
+     msg = "Message: " + event.data;
+     document.getElementById("received-message").innerHTML = message;
+    }
+   }
+   
+   if (window.addEventListener)
+    window.addEventListener("message", displayMessage, false);
+   else
+    window.attachEvent("onmessage", displayMessage);
+  </script>
+</html>
+```
+I think it doesn't need any explain. It just like the previous receiver, the only difference is an `if` condition. It checks if origin is started with **"http://domain-a.com"**, If an attacker try to send a data with a **"http://attacker.com"**, the receiver will write an error log. **BUT**, what if an attacker send a data by **"http://domain-a.com.attacker.com"** domain?! Yeaaa... Bypassed! The receiver will accept data. A secure way to implement is to check complete origin instead of `startsWith` or `endsWith` to compare a part of origin.
+
+```html
+<html>
+ <head></head>
+ <body>
+  <p id="received-message">Nothing got yet!</p>
+  <script>
+   function displayMessage(event) {
+    if (evt.origin == "http://domain-a.com") {
+     console.log("Invalid Origin! Do Not try Hacking at home. :)");
+    } else {
+     document.write(event.origin);
+     msg = "Message: " + event.data;
+     document.getElementById("received-message").innerHTML = message;
+    }
+   }
+   
+   if (window.addEventListener)
+    window.addEventListener("message", displayMessage, false);
+   else
+    window.attachEvent("onmessage", displayMessage);
+  </script>
+</html>
+```
+Now it is better! :)
