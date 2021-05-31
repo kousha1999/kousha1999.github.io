@@ -149,7 +149,7 @@ So everone can send data to any receiver, It is on receiver own to check the sen
   </script>
 </html>
 ```
-I think it doesn't need any explain. It just like the previous receiver, the only difference is an `if` condition. It checks if origin is started with **"http://domain-a.com"**, If an attacker try to send a data with a **"http://attacker.com"**, the receiver will write an error log. **BUT**, what if an attacker send a data by **"http://domain-a.com.attacker.com"** domain?! Yeaaa... Bypassed! The receiver will accept data. A secure way to implement is to check complete origin instead of `startsWith` or `endsWith` to compare a part of origin.
+I think it doesn't need any explain. It just like the previous receiver, the only difference is an `if` condition. It checks if origin is started with **"hxxp://domain-a.com"**, If an attacker try to send a data with a **"hxxp://attacker.com"**, the receiver will write an error log. **BUT**, what if an attacker send a data by **"hxxp://domain-a.com.attacker.com"** domain?! Yeaaa... Bypassed! The receiver will accept data. A secure way to implement is to check complete origin instead of `startsWith` or `endsWith` to compare a part of origin.
 
 ```html
 <html>
@@ -175,3 +175,8 @@ I think it doesn't need any explain. It just like the previous receiver, the onl
 </html>
 ```
 Now it is better! :)
+
+Now we get to the last misconfiguration. Consider a simple chatroom is implemented by the `postMessage()` functionality. There is a server which accept data from anywhere, It shows everyone data (message) that sent just like the first example that we implemented. The receiver shows the message by `innerHTML` JavaScript function.
+
+### Break (DOM-Base XSS)
+Cross-Site Scripting is a vulnerability that occur when user inputs reflect somewhere without sanitizing. It leds attacker to inject a script into the page that JavaScript is the most common one scripting language to exploit this vulnerability. 
