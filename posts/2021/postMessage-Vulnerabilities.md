@@ -109,7 +109,9 @@ Now we need to code the receiver of `postMessage()`. I just want to write what r
 ```
 `addEventListener()` will wait for an event, if it receive an event it will call a function which specified. `attachEvent()` is like `addEventListener()` but instead for **Internet Explorer** and **Opera**. `"message"` is the **type** of event that we waiting for. displayMessage is a function which will be call when we get what we waiting for (`"message"`).
 
-![](https://user-images.githubusercontent.com/36133745/120114723-c4255180-c195-11eb-9257-118a282b77de.gif)
+<p align="center">
+<img src="https://user-images.githubusercontent.com/36133745/120114723-c4255180-c195-11eb-9257-118a282b77de.gif">
+</p>
 
 Now we know how a `postMessage()` work. Let's move on and explain what vulnerabilities may occur.
 
@@ -189,4 +191,6 @@ If you inject a JavaScript code into the vulnerable JavaScript code (which means
 ### Back to the Future (postMessage)
 `innerHTML` is one of the vulnerable Javascript property that leads to DOM-based XSS. As you can see in the first example of **receiver.html**, the received data (message) are displayed by `innerHTML`. So what now?! Just send `<img src=x onerror=alert(1337)>` and now we exploited a XSS vulnerability.
 
-![](https://user-images.githubusercontent.com/36133745/120367050-a686f200-c325-11eb-81d8-a19a9eecb645.png)
+<p align="center">
+<img src="https://user-images.githubusercontent.com/36133745/120367050-a686f200-c325-11eb-81d8-a19a9eecb645.png">
+</p>
