@@ -187,4 +187,6 @@ There are also other types like mXSS or Self-XSS, But they are not an actual typ
 If you inject a JavaScript code into the vulnerable JavaScript code (which means it doesn't need to send a request to server for injecting JavaScript), it's a DOM-based XSS.
 
 ### Back to the Future (postMessage)
-`innerHTML` is one of the vulnerable Javascript property that leads to DOM-based XSS. As you can see in the first example of **receiver.html**, the received data (message) are displayed by `innerHTML`. 
+`innerHTML` is one of the vulnerable Javascript property that leads to DOM-based XSS. As you can see in the first example of **receiver.html**, the received data (message) are displayed by `innerHTML`. So what now?! Just send `<img src=x onerror=alert(1337)>` and now we exploited a XSS vulnerability.
+
+![](https://user-images.githubusercontent.com/36133745/120367050-a686f200-c325-11eb-81d8-a19a9eecb645.png)
