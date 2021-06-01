@@ -1,7 +1,7 @@
 ## Posts
 
 ### June 2021
-[1-Jun-2021: postMessage Vulnerabilties](https://kousha1999.github.io/posts/2021/postMessage-Vulnerabilties)
+[1-Jun-2021: postMessage Vulnerabilities](https://kousha1999.github.io/posts/2021/postMessage-Vulnerabilities)
 
 ### May 2021
 [4-May-2021: My FreeBSD journey for First Time](https://kousha1999.github.io/posts/2021/FreeBSD-Journey)
