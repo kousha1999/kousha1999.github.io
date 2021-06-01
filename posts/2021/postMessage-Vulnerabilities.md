@@ -185,6 +185,7 @@ Cross-Site Scripting (a.k.a XSS) is a vulnerability that occur when user inputs 
 * Reflected
 * Stored
 * DOM
+* 
 There are also other types like mXSS or Self-XSS, But they are not an actual type, they can be one of the 3 main types.
 If you inject a JavaScript code into the vulnerable JavaScript code (which means it doesn't need to send a request to server for injecting JavaScript), it's a DOM-based XSS.
 
