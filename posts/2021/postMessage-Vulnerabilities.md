@@ -6,12 +6,12 @@ then we are going to code and use it, at the end we will take a look at vulnerab
 
 `postMessage()` is a feature introduced in HTML5 and you can use it in JavaScript.
 This feature lets you send data between different Window objects (it can be an `iframe` or `window.open()`).
+
 **Same-Origin Policy** (`SOP`) is a mechanism that blocks the cross-origin requests, 
 It means if we request a resource that is not at the same origin, 
 our request will send but the response will return an error. In a word **Origin** is:
 
 >Origin = Protocol + Domain + Port
-
 
 **SOP** Will return an error in response if one of the **protocol**, **domain**, or even **port** changes. 
 postMessage provided a secure way that let you bypass this security mechanism.
