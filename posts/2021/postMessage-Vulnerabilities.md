@@ -96,8 +96,7 @@ Now we need to code the receiver of `postMessage()`. I just want to write what r
   <p id="received-message">Nothing got yet!</p>
   <script>
    function displayMessage(event) {
-    document.write(event.origin);
-    msg = "Message: " + event.data;
+    msg = "Message: " + event.data + "<br>Origin: " + event.origin;
     document.getElementById("received-message").innerHTML = message;
    }
    
@@ -140,8 +139,7 @@ So everone can send data to any receiver, It is on receiver own to check the sen
     if (evt.origin.startsWith != "http://domain-a.com") {
      console.log("Invalid Origin! Do Not try Hacking at home. :)");
     } else {
-     document.write(event.origin);
-     msg = "Message: " + event.data;
+     msg = "Message: " + event.data + "<br>Origin: " + event.origin;
      document.getElementById("received-message").innerHTML = message;
     }
    }
