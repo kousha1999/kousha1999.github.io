@@ -81,6 +81,7 @@ It's so much easy. Right?! :)
       }
     }
    </script>
+ </body>
 </html>
 ```
 First we take the Window object of the `iframe` and the message which we want to send, then we set a `function()` for `onsubmit` event of form, that call `postMessage()` on iframe Window object.You can also set `*` instead of `http://domain-b.com`. The `*` means this message can send to anyone, actually you can specify the origin in that, but we set it as `*` which means it could be anyone (any origin), sooo... Never do that in production stage. :))
@@ -105,6 +106,7 @@ Now we need to code the receiver of `postMessage()`. I just want to write what r
    else
     window.attachEvent("onmessage", displayMessage);
   </script>
+ </body>
 </html>
 ```
 `addEventListener()` will wait for an event, if it receive an event it will call a function which specified. `attachEvent()` is like `addEventListener()` but instead for **Internet Explorer** and **Opera**. `"message"` is the **type** of event that we waiting for. displayMessage is a function which will be call when we get what we waiting for (`"message"`).
@@ -149,6 +151,7 @@ So everone can send data to any receiver, It is on receiver own to check the sen
    else
     window.attachEvent("onmessage", displayMessage);
   </script>
+ </body>
 </html>
 ```
 I think it doesn't need any explain. It just like the previous receiver, the only difference is an `if` condition. It checks if origin is started with **"hxxp://domain-a.com"**, If an attacker try to send a data with a **"hxxp://attacker.com"**, the receiver will write an error log. **BUT**, what if an attacker send a data by **"hxxp://domain-a.com.attacker.com"** domain?! Yeaaa... Bypassed! The receiver will accept data. A secure way to implement is to check complete origin instead of `startsWith` or `endsWith` to compare a part of origin.
@@ -163,8 +166,7 @@ I think it doesn't need any explain. It just like the previous receiver, the onl
     if (evt.origin == "http://domain-a.com") {
      console.log("Invalid Origin! Do Not try Hacking at home. :)");
     } else {
-     document.write(event.origin);
-     msg = "Message: " + event.data;
+     msg = "Message: " + event.data + "<br>Origin: " + event.origin;
      document.getElementById("received-message").innerHTML = message;
     }
    }
@@ -174,6 +176,7 @@ I think it doesn't need any explain. It just like the previous receiver, the onl
    else
     window.attachEvent("onmessage", displayMessage);
   </script>
+ </body>
 </html>
 ```
 Now it is better! :)
