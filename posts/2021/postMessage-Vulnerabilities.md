@@ -136,7 +136,7 @@ So everone can send data to any receiver, It is on receiver own to check the sen
   <p id="received-message">Nothing got yet!</p>
   <script>
    function displayMessage(event) {
-    if (evt.origin.startsWith != "http://domain-a.com") {
+    if (evt.origin.startsWith("http://domain-a.com") != true) {
      console.log("Invalid Origin! Do Not try Hacking at home. :)");
     } else {
      msg = "Message: " + event.data + "<br>Origin: " + event.origin;
@@ -161,7 +161,7 @@ I think it doesn't need any explain. It just like the previous receiver, the onl
   <p id="received-message">Nothing got yet!</p>
   <script>
    function displayMessage(event) {
-    if (evt.origin == "http://domain-a.com") {
+    if (evt.origin != "http://domain-a.com") {
      console.log("Invalid Origin! Do Not try Hacking at home. :)");
     } else {
      msg = "Message: " + event.data + "<br>Origin: " + event.origin;
