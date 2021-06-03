@@ -1,19 +1,19 @@
 # postMessage and Misconfigurations
-I'll discuss about postMessage feature and how it can be vulnerable by wrong way implementation. First I'm going to talk about what is postMessage feature actually,
+I'll discuss the postMessage feature and how it can be vulnerable by wrong way implementation. First I'm going to talk about what is postMessage feature actually,
 then we are going to code and use it, at the end we will take a look at vulnerabilities.
 
 ## What is postMessage?
 
-`postMessage()` is a feature that introduced in HTML5 and you can use it by JavaScript.
-This feature let you send data between different Window objects (it can be an `iframe` or `window.open()`).
-`SOP` is a mechanism which block the cross-origin requests, 
-It means if we request a resource that is not in the same-origin, 
+`postMessage()` is a feature introduced in HTML5 and you can use it in JavaScript.
+This feature lets you send data between different Window objects (it can be an `iframe` or `window.open()`).
+**Same-Origin Policy** (`SOP`) is a mechanism that blocks the cross-origin requests, 
+It means if we request a resource that is not at the same origin, 
 our request will send but the response will return an error. In a word **Origin** is:
 
 >Origin = Protocol + Domain + Port
 
 
-SOP Will return an error in response if one of the **protocol**, **domain** or even **port** change. 
+**SOP** Will return an error in response if one of the **protocol**, **domain**, or even **port** changes. 
 postMessage provided a secure way that let you bypass this security mechanism.
 
 A `postMessage()` syntax is something like:
@@ -29,9 +29,9 @@ targetWindow.postMessage(message, targetOrigin, [transfer]);
   * `window.frames`: Basically it just return an array of frames. frames are accessible by `[interator]` or simply call it `[i]` notation.
   * `HTMLIFrameElement.contentWindow`: It returns a Window object of an `<iframe>` HTML.
 
-* `message`: This is the data you want to send. The data will serialized that this feature let you send data objects like a charm. The data will deserialize in the postMessage receiver.
+* `message`: This is the data you want to send. The data will be serialized that this feature lets you send data objects like a charm. The data will deserialize in the postMessage receiver.
 
-* `targetOrigin`: In the second parameter of `postMessage()` you can define the target (receiver) origin, also its value can be `*` that we will cover it later in this post.
+* `targetOrigin`: In the second parameter of `postMessage()`, you can define the target (receiver) origin, also its value can be `*` that we will cover later in this post.
 
 ### Data Sender
 Now we want to write a code that send a data to an `iframe`.
@@ -84,7 +84,7 @@ It's so much easy. Right?! :)
  </body>
 </html>
 ```
-First we take the Window object of the `iframe` and the message which we want to send, then we set a `function()` for `onsubmit` event of form, that call `postMessage()` on iframe Window object.You can also set `*` instead of `http://domain-b.com`. The `*` means this message can send to anyone, actually you can specify the origin in that, but we set it as `*` which means it could be anyone (any origin), sooo... Never do that in production stage. :))
+First, we take the Window object of the `iframe` and the message which we want to send, then we set a `function()` for `onsubmit` event of the form, that call `postMessage()` on the iframe Window object. You can also set `*` instead of `http://domain-b.com`. The `*` means this message can send to anyone, actually you can specify the origin in that, but we set it as `*` which means it could be anyone (any origin), sooo... Never do that in the production stage. :))
 
 Now we need to code the receiver of `postMessage()`. I just want to write what receiver got in the page.
 
