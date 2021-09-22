@@ -1,6 +1,6 @@
 # TeamTNT Miners in the Wild
 
-Last night I and My friend were Looking for some Redis NOSQL (Because Most of them do not have any authentication of course 😆) in Shodan and Censys for Bug Hunting.
+Last night my friend and I were Looking for some Redis NOSQL (Because Most of them do not have any authentication of course 😆) in Shodan and Censys for Bug Hunting.
 
 I've found some interesting things which led me to write this blog post.
 
