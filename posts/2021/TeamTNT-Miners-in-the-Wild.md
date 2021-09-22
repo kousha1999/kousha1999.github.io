@@ -29,3 +29,13 @@ It has a **db0** and **4 Key**. We can dump keys with `DUMP`, Also you can use `
 We can see there is a URL that requested by **cURL**. I've downloaded the file and used `file` command to determine what kind of file this is.
 ![](../../images/malware-sh.png)
 ![](../../images/malware-sh-content.png)
+
+It as 1488 lines of code 😐. I've analyzed some parts of this bash script and I'll explain some functionalities of it.
+In the last image you can see line 4 send output of `id` command to Hackers C2. Also in the next few lines you can see **miner** word multiple times which can be a good indicator we dealing with a CryptoMiner.
+
+After all these, It checks if **Alibaba Cloud Monitoring Service** enabled or not (till line 140). After that it disable **SELINUX**, **AppArmor** and **Aliyun**.
+This Bash Malware actually use [THIS SCRIPT](https://github.com/leitbogioro/Fuck_Aliyun/blob/master/Fuck_Aliyun.sh) for disabling **Alibaba Cloud Monitoring Service**.
+
+![malware-sh-disablefunc1](https://user-images.githubusercontent.com/36133745/134326008-41e7b387-aebe-4cac-9fb3-80a01fdce3e4.png)
+![malware-sh-disablefunc2](https://user-images.githubusercontent.com/36133745/134326017-23d16c44-d0ad-4de7-8df0-27555a1b5355.png)
+![malware-sh-disablefunc3](https://user-images.githubusercontent.com/36133745/134326047-4ff2d7c7-a812-4c4b-8a1e-4e3d192243cb.png)
