@@ -16,15 +16,16 @@ To connect a Redis server you can use `redis-cli -h [Redis Server IP]`.
 ![](../../images/redis-cli-connection.png)
 
 
-Redis is a Key-Value NOSQL Database that store data in memory, We can find information about Redis state and OS with `info` command.
+Redis is a **Key-Value** NOSQL Database that store data **in-memory**, We can find information about Redis state and OS with `info` command.
 If you want to see just the Keyspace part (Information about Keys and DBs), Use `info Keyspace`.
-![](../../redis-cli-info.png)
-![](../../redis-cli-info-keyspace.png)
+![](../../images/redis-cli-info.png)
+![](../../images/redis-cli-info-keyspace.png)
 
 
 It has a **db0** and **4 Key**. We can dump keys with `DUMP`, Also you can use `MGET` if `DUMP` didn't work. (Bypass Technique?!😃)
-![](../../redis-cli-dump.png)
+![](../../images/redis-cli-dump.png)
+
 
 We can see there is a URL that requested by **cURL**. I've downloaded the file and used `file` command to determine what kind of file this is.
-![](../../malware-sh.png)
-![](../../malware-sh-content.png)
+![](../../images/malware-sh.png)
+![](../../images/malware-sh-content.png)
