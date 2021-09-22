@@ -1,6 +1,6 @@
 # TeamTNT Miners in the Wild
 
-Last night Me and My friend were Looking for some Redis NOSQL (Because Most of them does not have any aunthetication 😆) in Shodan and Censys for Bug Hunting.
+Last night Me and My friend were Looking for some Redis NOSQL (Because Most of them does not have any aunthetication ofcourse 😆) in Shodan and Censys for Bug Hunting.
 
 I've found some interested which led me to write this blog post.
 
@@ -46,5 +46,11 @@ After all these functions, There are some URLs with **jpg** extension which are 
 The first URL (mid.jpg) downloaded and it's a **gzip** file. I've renamed and extracted it, It's compressed by **tar** again, So again decompressed it.
 ![](https://user-images.githubusercontent.com/36133745/134333023-0d8de1e9-11cf-4622-b39c-d59e7856ca5f.png)
 
-It gives us 2 file named (**[ext4]** and **[ext4.pid]**). The main file is an ELF file and pid file is a json configuration file.
+It gives us 2 file named (**[ext4]** and **[ext4.pid]**). The main file is an **ELF** file and pid file is a **JSON** configuration file.
 ![](https://user-images.githubusercontent.com/36133745/134333352-96f183d6-95c4-48a2-9f80-462cd67fd5cf.png)
+
+We going further, in line 789 there is a DIA_TAR which is a base64 encoded variable. I've decoded and saved it. It's a gzip file. I've decompressed it and it has 3 files (**diamorphine.c**, **diamorphine.h**, **Makefile**). It's a **ROOTKIT**! Yeahhh!! It has some features like make a process invisible or privilege escalation and etc.
+![dia](https://user-images.githubusercontent.com/36133745/134337504-9ae97477-c45e-4bde-88e6-40f160c38a5e.png)
+![rootkit](https://user-images.githubusercontent.com/36133745/134338695-9a7bd448-f1b5-4627-87e4-f8a7fdb9d9c6.png)
+![rootkit2](https://user-images.githubusercontent.com/36133745/134338704-d8b2b07c-abf9-4284-8a2a-17cc470c78e5.png)
+
