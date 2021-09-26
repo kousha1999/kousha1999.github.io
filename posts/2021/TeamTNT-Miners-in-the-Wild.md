@@ -26,11 +26,11 @@ It has a **db0** and **4 Key**. We can dump keys with `DUMP`, Also you can use `
 ![](../../images/redis-cli-dump.png)
 
 
-We can see there is a URL requested by **cURL**. I've downloaded the file and used `file` command to determine what kind of file this is.
+We can see there is a URL requested by **cURL**. I downloaded the file and used `file` command to determine what kind of file this is.
 ![](../../images/malware-sh.png)
 ![](../../images/malware-sh-content.png)
 
-It is 1488 lines of code 😐. I've analyzed some parts of this bash script and I'll explain some functionalities of it.
+It is 1488 lines of code 😐. I analyzed some parts of this bash script and I'll explain some functionalities of it.
 In the last image, you can see line 4 send the output of the `id` command to Hackers C2. Also in the next few lines, you can see **miner** word multiple times which can be a good indicator we dealing with a CryptoMiner.
 
 After all these, It checks if **Alibaba Cloud Monitoring Service** is enabled or not (till line 140). After that it disable **SELINUX**, **AppArmor** and **Aliyun**.
@@ -43,13 +43,13 @@ This Bash Malware use [THIS SCRIPT](https://github.com/leitbogioro/Fuck_Aliyun/b
 After all these functions, There are some URLs with **jpg** extension which are configs and miner, etc.
 ![malware-sh-urls](https://user-images.githubusercontent.com/36133745/134329743-eaf3e08e-604d-4177-b83f-6850c12d2100.png)
 
-The first URL (mid.jpg) was downloaded and it's a **gzip** file. I've renamed and extracted it, It's compressed by **tar** again, So again decompressed it.
+The first URL (mid.jpg) was downloaded and it's a **gzip** file. I renamed and extracted it, It's compressed by **tar** again, So again decompressed it.
 ![](https://user-images.githubusercontent.com/36133745/134333023-0d8de1e9-11cf-4622-b39c-d59e7856ca5f.png)
 
 It gives us 2 file named (**[ext4]** and **[ext4.pid]**). The main file is an **ELF** file and pid file is a **JSON** configuration file.
 ![](https://user-images.githubusercontent.com/36133745/134333352-96f183d6-95c4-48a2-9f80-462cd67fd5cf.png)
 
-We go further, in line 789 there is a DIA_TAR which is a base64 encoded variable. I've decoded and saved it. It's a gzip file. I've decompressed it and it has 3 files (**diamorphine.c**, **diamorphine.h**, **Makefile**). It's a **ROOTKIT**! Yeahhh!! It has some features like make a process invisible or privilege escalation, etc. It will compile by system as a **so** module and will execute.
+We go further, in line 789 there is a DIA_TAR which is a base64 encoded variable. I decoded and saved it. It's a gzip file. I decompressed it and it has 3 files (**diamorphine.c**, **diamorphine.h**, **Makefile**). It's a **ROOTKIT**! Yeahhh!! It has some features like make a process invisible or privilege escalation, etc. It will compile by system as a **so** module and will execute.
 ![dia](https://user-images.githubusercontent.com/36133745/134337504-9ae97477-c45e-4bde-88e6-40f160c38a5e.png)
 ![rootkit](https://user-images.githubusercontent.com/36133745/134338695-9a7bd448-f1b5-4627-87e4-f8a7fdb9d9c6.png)
 ![rootkit2](https://user-images.githubusercontent.com/36133745/134338704-d8b2b07c-abf9-4284-8a2a-17cc470c78e5.png)
@@ -62,5 +62,5 @@ Now Everything is done for running xmrig. It prints a TeamTNT logo and runs xmri
 
 
 The malware also downloads some other files which I didn't explain because I didn't have much time to analyze them. Lazy as f--k.
-After setup is completed it will download another shell script which is for a complete supply chain attack. And it will again download a tool called **pnscan** that is for port scanning.
-In a nutshell, it's a Miner and RAT for Linux systems. I've uploaded these samples in [**any.run**](https://app.any.run/tasks/0cb2d63d-553e-4663-814f-054f0843346b) and you can download them to analyze it more. Tell me if you found some interesting thing.
+After setup is completed it will download another shell script which is to complete cyber kill-chain. And it will again download a tool called **pnscan** that is for port scanning.
+In a nutshell, it's a Miner and RAT for Linux systems. I uploaded these samples in [**any.run**](https://app.any.run/tasks/0cb2d63d-553e-4663-814f-054f0843346b) and you can download them to analyze it more. Tell me if you found some interesting thing.
