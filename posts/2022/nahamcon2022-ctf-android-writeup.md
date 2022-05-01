@@ -33,7 +33,9 @@ OK, that's a mess. Who can even read that minified code?! you know I'm right. So
 
 
 I tried to be smart and search for the `flag` keyword, but I just fooled myself. :))
-Then I analyzed the code from the end of the script! That works a lot better. Then I found this request. There are a lot of bullshits, the real problem is those conditions (switch-case). You don't need that `n.token` or even that `s` whatever it is! I used the `curl` command to see the result. Also, there is a `/flag` path.
+Then I analyzed the code from the end of the script! That works a lot better. Then I found this request. There are a lot of bullshits, the real problem is those conditions (switch-case). You don't need that `n.token` or even that `n.s` whatever it is! I used the `curl` command to see the result. Also, there is a `/flag` path.
+![2022-05-01_19-16](https://user-images.githubusercontent.com/36133745/166151097-a010cc41-8c40-41e2-9aa7-4f9d48bd1cd3.png)
+
 ![2022-05-01_18-08](https://user-images.githubusercontent.com/36133745/166148672-fb577ca7-7ba6-4c2e-a96a-2616665c5978.png)
 
 So it just says give me the damn authorization header so I did. Thanks for the Flag. :)
