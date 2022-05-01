@@ -15,9 +15,14 @@ I opened the APK file in `Jadx-GUI`. There was nothing in `MainActivity`. So I j
 
 ## Click Me
 I think this challenge was easy too. You just had to change a little variable in `smali` code.
-In the `MainActivity`, We have 3 interesting parts. It is obvious that challenges want us (in the `getFlagButtonClick` function \[Section 2\]) to click `99999999` times on something to get the flag, but also stops us being clicking after `13371337`. I'm not crazy enough to click that many times. If you want to be a crazy hacker, you can just hook `cookieViewClick` with **Frida** to bypass that limit and then you are free to go by clicking `99999999` on the button. After that, the `clickme` native code will return the flag. But time is a matter so I'm gonna just change `99999999` to `2`. :)
-You can do this in the `smali` code. So I decompiled app with the `apktool` and changed `0x5f5e0ff` (int->99999999) to `0x2` (int->2). Then I build it and resigned it. Now you can just click on the cookie 2 times to get the flag. 
+In the `MainActivity`, We have 3 interesting parts. It is obvious that challenges want us (in the `getFlagButtonClick` function \[Section 2\]) to click `99999999` times on something to get the flag, but also stops us being clicking after `13371337`. I'm not crazy enough to click that many times. If you want to be a crazy hacker, you can just hook `cookieViewClick` with **Frida** to bypass that limit and then you are free to go by clicking `99999999` on the button. After that, the `clickme` native code will return the flag. 
 ![2022-05-01_17-40](https://user-images.githubusercontent.com/36133745/166148625-32b5f0ba-991c-4f3d-ae5a-63dc907a7219.png)
+
+But time is a matter so I'm gonna just change `99999999` to `2`. :)
+You can do this in the `smali` code. So I decompiled app with the `apktool` and changed `0x5f5e0ff` (int->99999999) to `0x2` (int->2). Then I build it and resigned it. 
+![2022-05-01_19-49](https://user-images.githubusercontent.com/36133745/166152627-b96db945-8b2c-4222-ae23-e44bc7514b01.png)
+
+Now you can just click on the cookie 2 times to get the flag. 
 ![photo_2022-05-01_17-52-12](https://user-images.githubusercontent.com/36133745/166148638-679532d1-7b28-4127-a2a8-733404d1e680.jpg)
 
 
