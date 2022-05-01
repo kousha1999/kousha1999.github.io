@@ -55,6 +55,16 @@ Before writing a brute-force script for that encrypted database, I had a look at
 
 
 So I extracted db.encrypted from the `/asset` folder (via `apktool`). Then I wrote a little python script for brute force. Aaaaand Yello Flag!
+```python
+with open("./ctf/db.encrypted", "rb") as fp:
+  note = fp.read()
+
+for i in range(10000):
+  cipher = AES.new(str(i).zfill(4) * 4)
+  plaintext = cipher.decrypt(note)
+  if "flag" in str(plaintext):
+    print(plaintext)
+    print(str(i).zfill(4) * 4)```
 
 ![2022-05-01_18-33_1](https://user-images.githubusercontent.com/36133745/166149503-06f33aab-422b-4f36-81b8-156a36cb04c8.png)
 
