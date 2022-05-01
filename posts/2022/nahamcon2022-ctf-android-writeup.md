@@ -47,14 +47,14 @@ This challenge difficulty was just like the OTPVault, maybe a little more tricky
 The application is sick and contains 2 Main/Launcher activities! :/
 ![2022-05-01_18-19](https://user-images.githubusercontent.com/36133745/166148889-042ecdf9-3153-49df-95c1-7f5ead692cdd.png)
 
-BTW, the real code that we have to deal with, is in the LoginActivity. 
+BTW, the real code that we have to deal with, is in the `LoginActivity`. 
 ![2022-05-01_18-22](https://user-images.githubusercontent.com/36133745/166150153-85ba23ce-ccd2-47be-aabf-5204acdf691e.png)
 
 It seems we have an encrypted database. It is obvious whatever is this, It stores a flag! So let's decrypt it. In the first red box we can see there is a function named `d.k()` which calls in `onClick()` method. Let's see what is it!
 ![photo_2022-05-01_18-55-07](https://user-images.githubusercontent.com/36133745/166150278-5959d1f5-ea58-41cb-9f9a-e60860eff75c.jpg)
 
 
-Oooh. There you are `AES` encryption! But we can't see AES Mode! ECB or CBC?! Based on the Oracle documentation, the default mode is ECB. the first parameter of this function is key (`str`)! In LoginActivity (previous image) you can see key is `this.f1583b.getText().toString()`, but it repeats 4 times! AES Key is 16-byte. So it means we have to find a key that contains 4 bytes (4 characters) that will repeat 4 times (4 * 4 = 16, Duh...).
+Oooh. There you are `AES` encryption! But we can't see `AES` Mode! `ECB` or `CBC`?! Based on the Oracle documentation, the **default mode** is `ECB`. the first parameter of this function is key (`str`)! In `LoginActivity` (previous image) you can see key is `this.f1583b.getText().toString()`, but it repeats 4 times! AES Key is 16-byte. So it means we have to find a key that contains 4 bytes (4 characters) that will repeat 4 times (4 * 4 = 16, Duh...).
 
 Before writing a brute-force script for that encrypted database, I had a look at the `MainActivity`. It seems the decrypted data must be JSON.
 ![2022-05-01_18-35](https://user-images.githubusercontent.com/36133745/166149450-3c358d92-37e4-44e4-b717-93eba165e22c.png)
