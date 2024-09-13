@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TrafficAnalysis on Kousha Zanjani (INVOXES) Blog</title>
+    <link>http://localhost:1313/tags/trafficanalysis/</link>
+    <description>Recent content in TrafficAnalysis on Kousha Zanjani (INVOXES) Blog</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>Kousha.Zanjani@gmail.com (Kousha Zanjani)</managingEditor>
+    <webMaster>Kousha.Zanjani@gmail.com (Kousha Zanjani)</webMaster>
+    <copyright>Kousha Zanjani</copyright>
+    <lastBuildDate>Thu, 13 May 2021 09:11:56 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/trafficanalysis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Extract PNG Malware from PCAP File</title>
+      <link>http://localhost:1313/posts/2021/extract-png-malware-from-pcap-file/</link>
+      <pubDate>Thu, 13 May 2021 09:11:56 +0200</pubDate><author>Kousha.Zanjani@gmail.com (Kousha Zanjani)</author>
+      <guid>http://localhost:1313/posts/2021/extract-png-malware-from-pcap-file/</guid>
+      <description>&lt;p&gt;I want to talk about How I detected and extracted PNG malware from a PCAP file.&lt;/p&gt;&#xA;&lt;p&gt;What we will cover in this post:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Introduction to Packet Analysis&lt;/li&gt;&#xA;&lt;li&gt;Introduction to Wireshark&lt;/li&gt;&#xA;&lt;li&gt;Detect Malicious Network Traffic&lt;/li&gt;&#xA;&lt;li&gt;Partial Content Responses&lt;/li&gt;&#xA;&lt;li&gt;Impact of Connection Problems&lt;/li&gt;&#xA;&lt;li&gt;Extract Malicious File from HTTP for analysis and Reverse Engineering&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Nowadays cyber attacks have become more sophisticated. The use of malware is increasing, Malware comes in many forms such as:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

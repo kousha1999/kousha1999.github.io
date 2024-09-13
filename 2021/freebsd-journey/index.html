@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title> :: Hugo Theme Tailwind Example Site - Example site for hugo-theme-tailwind</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="My FreeBSD Journey I&rsquo;m a GNU/Linux user and I had Arch/Fedora/&hellip; distributions for a while. I was passionate about BSDs especially FreeBSD. It has a devil-like logo (Beastie :)) which is cute and I like it. So I decided to share my experience when I installed it on my laptop as the main OS.
+After installation, I had a Terminal which is not a good idea when you&rsquo;re using an OS as your daily/Personal OS, which made me install a GUI. We need root privilege to do some kinds of stuff so instead su command I prefer to use sudo, so I installed it first.
+"
+/>
+<meta
+  name="keywords"
+  content="hugo, tailwind, tailwindcss, hugo theme, hugo theme tailwind"
+/>
+<meta name="robots" content="noodp" /><link rel="manifest" href="/manifest.json" /><meta property="og:url" content="http://localhost:1313/2021/freebsd-journey/">
+  <meta property="og:site_name" content="Hugo Theme Tailwind Example Site">
+  <meta property="og:title" content="Hugo Theme Tailwind Example Site">
+  <meta property="og:description" content="My FreeBSD Journey I’m a GNU/Linux user and I had Arch/Fedora/… distributions for a while. I was passionate about BSDs especially FreeBSD. It has a devil-like logo (Beastie :)) which is cute and I like it. So I decided to share my experience when I installed it on my laptop as the main OS.
+After installation, I had a Terminal which is not a good idea when you’re using an OS as your daily/Personal OS, which made me install a GUI. We need root privilege to do some kinds of stuff so instead su command I prefer to use sudo, so I installed it first.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="2021">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Hugo Theme Tailwind Example Site">
+  <meta name="twitter:description" content="My FreeBSD Journey I’m a GNU/Linux user and I had Arch/Fedora/… distributions for a while. I was passionate about BSDs especially FreeBSD. It has a devil-like logo (Beastie :)) which is cute and I like it. So I decided to share my experience when I installed it on my laptop as the main OS.
+After installation, I had a Terminal which is not a good idea when you’re using an OS as your daily/Personal OS, which made me install a GUI. We need root privilege to do some kinds of stuff so instead su command I prefer to use sudo, so I installed it first.">
+
+
+<link rel="canonical" href="http://localhost:1313/2021/freebsd-journey/" />
+
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="/css/index.f2b5b9c8e4e9b03048601ca9eedc29df44c3a73343f4538f41785e16f13c341a.css">
+
+
+
+
+
+
+
+
+
+  
+  
+
+</head>
+<body class="flex flex-col min-h-screen w-full bg-slate-50 dark:bg-gray-800">
+    
+<div class="fixed right-0 top-0 z-50 flex items-center justify-center bg-gray-200 p-2 text-sm uppercase text-black sm:bg-red-200 md:bg-yellow-200 lg:bg-green-200 xl:bg-blue-200 2xl:bg-pink-200">
+  <span class="block sm:hidden">all</span>
+  <span class="hidden sm:block md:hidden">sm</span>
+  <span class="hidden md:block lg:hidden">md</span>
+  <span class="hidden lg:block xl:hidden">lg</span>
+  <span class="hidden xl:block 2xl:hidden">xl</span>
+  <span class="hidden 2xl:block">2xl</span>
+</div>
+
+  <header class="flex flex-none justify-center z-10">
+    <div class="flex flex-row gap justify-between w-full max-w-4xl lg:max-w-5xl h-12 mt-3">
+  <div class="flex-none ml-2 md:ml-0">
+    <a href="/" class="">
+      <img class="h-12 w-12 rounded-full object-cover bg-gray-100" src="/logo.webp" alt="logo">
+    </a>
+  </div>
+  <div class="flex-1"></div>
+  <div class="flex-none">
+    
+
+
+
+<nav class="h-full static">
+  <button id="navbar-menu-toggle" type="button" class="inline-flex items-center p-2 text-sm text-slate-800 dark:text-slate-200 rounded-lg md:hidden" aria-controls="navbar-menu" aria-expanded="false">
+    <span class="sr-only">Open main menu</span>
+    <i class="w-8 h-8">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 6l16 0" />
+  <path d="M4 12l16 0" />
+  <path d="M4 18l16 0" />
+</svg>
+
+    </i>
+  </button>
+  <div class="absolute md:static top-16 left-0 right-0 z-50 hidden w-full md:block md:w-auto" id="navbar-menu">
+    <ul class="flex flex-col mx-2 md:mx-0 md:flex-row md:border-0 rounded-sm md:rounded-full px-3 text-base font-medium text-slate-800 dark:text-slate-200 shadow-lg bg-white dark:bg-gray-600 shadow-slate-800/5 dark:shadow-slate-200/5 ring-1 ring-slate-900/5 dark:ring-slate-100/5">
+    
+        <li id="post" class="">
+          <a class="block px-3 py-3 hover:text-emerald-600"
+            href="/posts" title="Post">Post</a>
+        </li>
+      
+    
+        <li id="about" class="">
+          <a class="block px-3 py-3 hover:text-emerald-600"
+            href="/about" title="About">About</a>
+        </li>
+      
+    
+    </ul>
+  </div>
+</nav>
+
+
+  </div>
+  
+  <div class="flex-none mx-1"></div>
+  
+  <div class="flex-none md:hidden">
+    <a href=/search/ class="inline-flex items-center p-2 text-sm text-slate-800 dark:text-slate-200 rounded-lg" aria-controls="navbar-menu" aria-expanded="false">
+      <span class="sr-only">Search</span>
+      <i class="w-8 h-8">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+    <path d="M21 21l-6 -6" />
+</svg>
+
+      </i>
+    </a>
+  </div>
+  <div class="darkmode-toggle flex flex-none mr-2 md:mr-0">
+    <label for="darkmode-toggle" class="flex items-center px-3 cursor-pointer rounded-full bg-gray-100 dark:bg-gray-600" title="Toggle dark mode">
+      <input name="darkmode-toggle" id="darkmode-toggle" type="checkbox" class="sr-only peer" aria-label="Toggle dark mode">
+      <div class="group flex flex-row gap-1 justify-center h-8 px-1 rounded-full bg-white dark:bg-gray-700">
+        <i class="h-6 w-6 flex-none rounded-full bg-yellow-400 place-self-center peer-checked:group-[]:invisible">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brightness-down" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+   <path d="M12 5l0 .01"></path>
+   <path d="M17 7l0 .01"></path>
+   <path d="M19 12l0 .01"></path>
+   <path d="M17 17l0 .01"></path>
+   <path d="M12 19l0 .01"></path>
+   <path d="M7 17l0 .01"></path>
+   <path d="M5 12l0 .01"></path>
+   <path d="M7 7l0 .01"></path>
+</svg>
+
+        </i>
+        <i class="h-6 w-6 flex-none rounded-full place-self-center invisible peer-checked:group-[]:visible">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-moon-stars" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+   <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"></path>
+   <path d="M19 11h2m-1 -1v2"></path>
+</svg>
+
+        </i>
+      </div>
+    </label>
+  </div>
+</div>
+
+  </header>
+  <main class="flex flex-auto justify-center">
+    
+<div class="w-full max-w-4xl lg:max-w-5xl">
+  <div class="flex flex-col mt-6 mx-2 md:mx-0 rounded-lg overflow-hidden shadow-md bg-white dark:bg-gray-700">
+    <div>
+      <a href="/2021/freebsd-journey/">
+        
+      </a>
+    </div>
+    <div class="flex flex-col gap-y-3 p-6">
+      <h1 class="text-4xl font-semibold text-slate-800 dark:text-slate-100">
+        <a href="/2021/freebsd-journey/"></a>
+      </h1>
+
+      
+      
+
+
+      <div class="flex flex-col gap-y-1 md:flex-row md:gap-y-0 md:gap-x-4 text-slate-500 dark:text-slate-300">
+  <div class="flex flex-row text-base gap-x-1">
+    <i class="h-6 w-6 flex-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hourglass-high" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M6.5 7h11"></path>
+   <path d="M6 20v-2a6 6 0 1 1 12 0v2a1 1 0 0 1 -1 1h-10a1 1 0 0 1 -1 -1z"></path>
+   <path d="M6 4v2a6 6 0 1 0 12 0v-2a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1z"></path>
+</svg>
+
+    </i>
+    <span>
+      4 minutes to read
+    </span>
+  </div>
+</div>
+
+      
+
+      
+        
+        <section class="prose prose-slate dark:prose-invert w-full max-w-4xl lg:max-w-5xl mt-6">
+          <h2>Table of Contents</h2>
+          <aside><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#sudo">Sudo</a></li>
+        <li><a href="#update-ports">Update Ports</a></li>
+        <li><a href="#etcrcconf-vs-bootloaderconf">/etc/rc.conf vs /boot/loader.conf?</a></li>
+      </ul>
+    </li>
+    <li><a href="#packages-installation">Packages Installation</a>
+      <ul>
+        <li><a href="#portmaster">Portmaster</a></li>
+        <li><a href="#virtualbox">VirtualBox</a></li>
+        <li><a href="#openconnect">OpenConnect</a></li>
+        <li><a href="#intel-grapric-driver">Intel Grapric Driver</a></li>
+      </ul>
+    </li>
+    <li><a href="#configurations">Configurations</a></li>
+    <li><a href="#challenge-with-external-hard-drive-">challenge with External Hard Drive :))</a></li>
+  </ul>
+</nav></aside>
+        </section>
+        
+      
+
+      <article class="mt-6 w-full max-w-4xl lg:max-w-5xl prose prose-slate dark:prose-invert prose-quoteless post-content">
+        <h1 id="my-freebsd-journey">My FreeBSD Journey</h1>
+<p><div class="not-prose">
+<figure>
+    <img src="../../images/beastie.logo"
+      alt="" 
+      loading="lazy"
+    >
+  </figure></div>
+</p>
+<p>I&rsquo;m a GNU/Linux user and I had Arch/Fedora/&hellip; distributions for a while. I was passionate about BSDs especially FreeBSD. It has a devil-like logo (Beastie :)) which is cute and I like it. So I decided to share my experience when I installed it on my laptop as the main OS.</p>
+<p>After installation, I had a Terminal which is not a good idea when you&rsquo;re using an OS as your daily/Personal OS, which made me install a GUI.
+We need root privilege to do some kinds of stuff so instead <code>su</code> command I prefer to use <code>sudo</code>, so I installed it first.</p>
+<h3 id="sudo">Sudo</h3>
+<ol>
+<li><code>root# pkg install sudo</code></li>
+<li><code>root# visudo</code></li>
+<li>write <code>invoxes ALL=(ALL) ALL</code> in config file</li>
+<li>save and exit</li>
+</ol>
+<p>Now I can use sudo whenever i need root privilege. Now I&rsquo;m going to install a Window Manager (WM) and I choose i3 WM.
+I&rsquo;ve found a blog <a href="https://unixsheikh.com/tutorials/how-to-setup-freebsd-with-a-riced-desktop-part-3-i3.html" target="_blank" rel="noopener">How to setup FreeBSD with a riced desktop | unixsheikh</a>
+
+that explains how to install i3 on FreeBSD.</p>
+<p>I have a list of various apps that I always need them like VirtualBox, OpenVPN, etc. and my installation steps below. But it is good to know you can use ports to install these.
+I like <strong>portmaster</strong> to manage ports packages. It simply install with pkg.</p>
+<p>I have a few things to say before I start:
+Update ports packages index before using it.</p>
+<h3 id="update-ports">Update Ports</h3>
+<ol>
+<li><code>sudo portsnap fetch</code></li>
+<li><code>sudo portsnap extract</code></li>
+<li>Then update it before install any package from it by <code>sudo portsnap fetch update</code></li>
+</ol>
+<h3 id="etcrcconf-vs-bootloaderconf">/etc/rc.conf vs /boot/loader.conf?</h3>
+<p>loader.conf starts during boot while rc.conf starts after boot process. So do not add a driver/service/etc. load in both of them, because it is useless. When something is loaded during boot, it is not going to load again after boot process.</p>
+<h2 id="packages-installation">Packages Installation</h2>
+<h3 id="portmaster">Portmaster</h3>
+<p>Install portmaster with pkg is simple.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>sudo pkg install portmaster
+</span></span></code></pre></div><p>now you can install package by <code>portmaster</code> tool from ports packages.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>sudo portmaster www/nginx
+</span></span></code></pre></div><p>You can remove distfiles with portmaster too.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>sudo portmaster --clean-distfiles
+</span></span></code></pre></div><h3 id="virtualbox">VirtualBox</h3>
+<ol>
+<li><code>sudo pkg install virtualbox-ose virtualbox-ose-additions</code></li>
+<li>Load <code>vboxdrv</code> Module with <code>kldload vboxdrv</code></li>
+<li>To make sure Module is always load, add <code>vboxdrv_load=&quot;YES&quot;</code> and <code>vboxnet_enable=&quot;YES&quot;</code> to /etc/rc.conf</li>
+<li><code>pw groupmod vboxusers -m yourusername</code></li>
+<li><code>chown root:vboxusers /dev/vboxnetctl</code></li>
+<li><code>chmod 0660 /dev/vboxnetctl</code></li>
+<li>add below configuration into /etc/devfs.conf</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>own     vboxnetctl root:vboxusers
+</span></span><span style="display:flex;"><span>perm    vboxnetctl 0660
+</span></span></code></pre></div><p>I had a problem with VirtualBox during Windows 10 installation and Windows 10 was stuck (froze) during installation, to fix that problem I&rsquo;ve changed the storage device type from <code>SATA Controller</code> to <code>IDE Controller</code> from <code>Settings -&gt; Storage</code>.</p>
+<h3 id="openconnect">OpenConnect</h3>
+<ol>
+<li><code>sudo pkg install openconnect</code></li>
+<li>connect to vpn :)</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>sudo openconnect --user=invoxes [VPN Address]
+</span></span></code></pre></div><h3 id="intel-grapric-driver">Intel Grapric Driver</h3>
+<p>If you did what <a href="https://unixsheikh.com/tutorials/how-to-setup-freebsd-with-a-riced-desktop-part-3-i3.html" target="_blank" rel="noopener">How to setup FreeBSD with a riced desktop | unixsheikh</a>
+ did, you already installed it. :)</p>
+<ol>
+<li><code>sudo pkg install drm-kmod</code></li>
+<li>add <code>kld_list=&quot;/boot/modules/i915kms.ko&quot;</code> in /etc/rc.conf</li>
+<li><code>sudo pw groupmod video -m [username]</code></li>
+<li>reboot system and check i915kms is loaded or not (by <code>kldstat</code>)</li>
+</ol>
+<h2 id="configurations">Configurations</h2>
+<p>Touchpad:
+There are 3 different driver for trackpad. I didn&rsquo;t try all of them but here is a <a href="https://www.reddit.com/r/linuxquestions/comments/904gdq/libinput_vs_synaptics_vs_mtrack_whats_your" target="_blank" rel="noopener">Reddit Post</a>
+ which some experiences are shared by other guys. I use <code>libinput</code>, if you want to use <code>libinput</code> too, just follow my steps.</p>
+<ol>
+<li>create <code>/usr/local/etc/X11/xorg.conf.d/90-touchpad.conf</code></li>
+<li>Write Config.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Section &#34;InputClass&#34;
+</span></span><span style="display:flex;"><span>	Identifier &#34;touchpad&#34;
+</span></span><span style="display:flex;"><span>	MatchIsTouchpad &#34;on&#34;
+</span></span><span style="display:flex;"><span>	Driver &#34;libinput&#34;
+</span></span><span style="display:flex;"><span>	Option &#34;Tapping&#34; &#34;on&#34;
+</span></span><span style="display:flex;"><span>EndSection
+</span></span></code></pre></div><h2 id="challenge-with-external-hard-drive-">challenge with External Hard Drive :))</h2>
+<p>I have an External Hard Drive and my backups and files are stored in that. I connected it to my laptop but FreeBSD didn&rsquo;t recognized it.
+I&rsquo;ve used <code>ls</code> to check External Hard Drive is detected or not and it was detected.</p>
+<p><code>ls -l /dev/da*</code></p>
+<p>Then I used gpart to see my External Hard Drive details.</p>
+<p>Command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>gpart show /dev/da0
+</span></span></code></pre></div><p>Output:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>=&gt;        63  3907029105  da0  MBR  (1.8T)
+</span></span><span style="display:flex;"><span>          63  3907024002    1  ntfs  (1.8T)
+</span></span><span style="display:flex;"><span>  3907024065        5103       - free -  (2.5M)
+</span></span></code></pre></div><p>Everything was ok.
+Before mount, We must load <code>fusefs</code> module by <code>kldload fusefs</code> command. Make sure it is loaded by <code>kldstat | grep fuse</code> command.</p>
+<p>It is obvious if you want load it everytime, use rc.conf file.
+It was detected as <code>NTFS</code> so I tried to mount with below command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>sudo mount -t ntfs-3g /dev/da0s1 /mnt
+</span></span></code></pre></div><p>but it failed!</p>
+<p>To determine what kind of File System really is, I used <code>fstyp</code> command.</p>
+<p>Command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>sudo fstyp /dev/da0s1
+</span></span></code></pre></div><p>Output:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>exfat
+</span></span></code></pre></div><p>Yep! It is <code>exfat</code>. Now I could mount it with below command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>sudo mount.exfat-fuse /dev/da0s1 /mnt
+</span></span></code></pre></div><p>Now it worked! You can check it by <code>ls -l /mnt</code> command.</p>
+
+      </article>
+
+      
+
+
+
+
+    </div>
+  </div>
+</div>
+
+  </main>
+  <footer class="flex flex-none justify-center">
+    <section class="flex flex-col md:flex-row mx-2 md:mx-0 gap-2 md:gap-0 justify-between w-full max-w-4xl lg:max-w-5xl py-6 text-slate-500 dark:text-slate-300">
+  <div class="flex flex-row">
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+  <div class="grow"></div>
+  <div class="flex flex-row">
+    <i class="h-6 w-6 flex-none"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+   <path d="M14 9.75a3.016 3.016 0 0 0 -4.163 .173a2.993 2.993 0 0 0 0 4.154a3.016 3.016 0 0 0 4.163 .173"></path>
+</svg>
+</i> 2023 - 2024 Your Name
+    
+  </div>
+  
+  <div class="flex flex-row">
+    <span class="ml-0 pl-0 md:ml-2 md:pl-2 border-l-0 md:border-l border-slate-300 dark:border-slate-400">
+      Powered by <a href="https://gohugo.io" target="_blank" rel="noopener" class="underline">Hugo</a> <span class="text-red-600">&hearts;</span> <a href="https://github.com/tomowang/hugo-theme-tailwind" target="_blank" rel="noopener" class="underline">Tailwind</a>
+    </span>
+  </div>
+  
+</section>
+
+  </footer>
+  <script src="/main.js"></script>
+
+<div class="hidden top-1 right-1" id="code-copy">
+  <i class="h-6 w-6 block">
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" />
+  <path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" />
+</svg>
+
+  </i>
+</div>
+<div class="hidden top-1 right-1" id="code-copy-done">
+  <i class="h-6 w-6 block">
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-check" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M5 12l5 5l10 -10" />
+</svg>
+
+  </i>
+</div><script src="/code-copy.js"></script>
+
+
+
+
+
+</body>
+</html>

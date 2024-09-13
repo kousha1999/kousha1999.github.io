@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Redis on Kousha Zanjani (INVOXES) Blog</title>
+    <link>http://localhost:1313/tags/redis/</link>
+    <description>Recent content in Redis on Kousha Zanjani (INVOXES) Blog</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>Kousha.Zanjani@gmail.com (Kousha Zanjani)</managingEditor>
+    <webMaster>Kousha.Zanjani@gmail.com (Kousha Zanjani)</webMaster>
+    <copyright>Kousha Zanjani</copyright>
+    <lastBuildDate>Wed, 22 Sep 2021 09:11:56 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TeamTNT Miners in the Wild</title>
+      <link>http://localhost:1313/posts/2021/teamtnt-miners-in-the-wild/</link>
+      <pubDate>Wed, 22 Sep 2021 09:11:56 +0200</pubDate><author>Kousha.Zanjani@gmail.com (Kousha Zanjani)</author>
+      <guid>http://localhost:1313/posts/2021/teamtnt-miners-in-the-wild/</guid>
+      <description>&lt;p&gt;Last night my friend and I were Looking for some Redis NOSQL (Because Most of them do not have any authentication of course 😆) in Shodan and Censys for Bug Hunting.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve found some interesting things which led me to write this blog post.&lt;/p&gt;&#xA;&lt;p&gt;Most of the Redis seemed to be exploited and infected with a Miner by TeamTNT.&lt;/p&gt;&#xA;&lt;p&gt;I used shodan query &lt;code&gt;port:6379&lt;/code&gt; to find Redis services.&lt;div class=&#34;not-prose&#34;&gt;&#xA;&lt;figure&gt;&#xA;    &lt;img src=&#34;../../images/shodan.png&#34;&#xA;      alt=&#34;&#34; &#xA;      loading=&#34;lazy&#34;&#xA;    &gt;&#xA;  &lt;/figure&gt;&lt;/div&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;Redis has a tool called &lt;code&gt;redis-cli&lt;/code&gt; which lets you interact with Redis servers.&#xA;I used it to connect Redis servers to find vulnerabilities and sensitive data for bug hunting reports.&#xA;To connect a Redis server you can use &lt;code&gt;redis-cli -h [Redis Server IP]&lt;/code&gt;.&lt;div class=&#34;not-prose&#34;&gt;&#xA;&lt;figure&gt;&#xA;    &lt;img src=&#34;../../images/redis-cli-connection.png&#34;&#xA;      alt=&#34;&#34; &#xA;      loading=&#34;lazy&#34;&#xA;    &gt;&#xA;  &lt;/figure&gt;&lt;/div&gt;&#xA;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

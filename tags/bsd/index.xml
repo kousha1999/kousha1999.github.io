@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BSD on Kousha Zanjani (INVOXES) Blog</title>
+    <link>http://localhost:1313/tags/bsd/</link>
+    <description>Recent content in BSD on Kousha Zanjani (INVOXES) Blog</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>Kousha.Zanjani@gmail.com (Kousha Zanjani)</managingEditor>
+    <webMaster>Kousha.Zanjani@gmail.com (Kousha Zanjani)</webMaster>
+    <copyright>Kousha Zanjani</copyright>
+    <lastBuildDate>Tue, 04 May 2021 09:11:56 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/bsd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My FreeBSD Journey</title>
+      <link>http://localhost:1313/posts/2021/freebsd-journey/</link>
+      <pubDate>Tue, 04 May 2021 09:11:56 +0200</pubDate><author>Kousha.Zanjani@gmail.com (Kousha Zanjani)</author>
+      <guid>http://localhost:1313/posts/2021/freebsd-journey/</guid>
+      <description>&lt;p&gt;&lt;div class=&#34;not-prose&#34;&gt;&#xA;&lt;figure&gt;&#xA;    &lt;img src=&#34;../../images/beastie.logo&#34;&#xA;      alt=&#34;&#34; &#xA;      loading=&#34;lazy&#34;&#xA;    &gt;&#xA;  &lt;/figure&gt;&lt;/div&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;m a GNU/Linux user and I had Arch/Fedora/&amp;hellip; distributions for a while. I was passionate about BSDs especially FreeBSD. It has a devil-like logo (Beastie :)) which is cute and I like it. So I decided to share my experience when I installed it on my laptop as the main OS.&lt;/p&gt;&#xA;&lt;p&gt;After installation, I had a Terminal which is not a good idea when you&amp;rsquo;re using an OS as your daily/Personal OS, which made me install a GUI.&#xA;We need root privilege to do some kinds of stuff so instead &lt;code&gt;su&lt;/code&gt; command I prefer to use &lt;code&gt;sudo&lt;/code&gt;, so I installed it first.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

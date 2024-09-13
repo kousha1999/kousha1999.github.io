@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web on Kousha Zanjani (INVOXES) Blog</title>
+    <link>http://localhost:1313/tags/web/</link>
+    <description>Recent content in Web on Kousha Zanjani (INVOXES) Blog</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>Kousha.Zanjani@gmail.com (Kousha Zanjani)</managingEditor>
+    <webMaster>Kousha.Zanjani@gmail.com (Kousha Zanjani)</webMaster>
+    <copyright>Kousha Zanjani</copyright>
+    <lastBuildDate>Tue, 01 Jun 2021 09:11:56 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>postMessage and Misconfigurations</title>
+      <link>http://localhost:1313/posts/2021/postmessage-vulnerabilities/</link>
+      <pubDate>Tue, 01 Jun 2021 09:11:56 +0200</pubDate><author>Kousha.Zanjani@gmail.com (Kousha Zanjani)</author>
+      <guid>http://localhost:1313/posts/2021/postmessage-vulnerabilities/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ll discuss the postMessage feature and how it can be vulnerable by wrong way implementation. First I&amp;rsquo;m going to talk about what is postMessage feature actually,&#xA;then we are going to code and use it, at the end we will take a look at vulnerabilities.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-postmessage&#34;&gt;What is postMessage?&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;postMessage()&lt;/code&gt; is a feature introduced in HTML5 and you can use it in JavaScript.&#xA;This feature lets you send data between different Window objects (it can be an &lt;code&gt;iframe&lt;/code&gt; or &lt;code&gt;window.open()&lt;/code&gt;).&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

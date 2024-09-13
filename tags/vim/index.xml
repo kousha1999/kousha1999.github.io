@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vim on Kousha Zanjani (INVOXES) Blog</title>
+    <link>http://localhost:1313/tags/vim/</link>
+    <description>Recent content in Vim on Kousha Zanjani (INVOXES) Blog</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>Kousha.Zanjani@gmail.com (Kousha Zanjani)</managingEditor>
+    <webMaster>Kousha.Zanjani@gmail.com (Kousha Zanjani)</webMaster>
+    <copyright>Kousha Zanjani</copyright>
+    <lastBuildDate>Fri, 02 Apr 2021 09:11:56 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First Experience with Neovim</title>
+      <link>http://localhost:1313/posts/2021/first-experience-with-neovim/</link>
+      <pubDate>Fri, 02 Apr 2021 09:11:56 +0200</pubDate><author>Kousha.Zanjani@gmail.com (Kousha Zanjani)</author>
+      <guid>http://localhost:1313/posts/2021/first-experience-with-neovim/</guid>
+      <description>&lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;&#xA;&lt;p&gt;I&amp;rsquo;m a Vim user but, I love to try new things and this time, I tried Neovim.&#xA;Installation is so easy, I&amp;rsquo;m an Arch Linux user so it is easy as enter below command.&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;sudo pacman -S neovim&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;You can check the &lt;a href=&#34;https://github.com/neovim/neovim/wiki/Installing-Neovim&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Neovim Github&lt;/a&gt;&#xA; for installation steps.&lt;/p&gt;&#xA;&lt;p&gt;When completed, you can run Neovim by &lt;code&gt;nvim&lt;/code&gt; command.&lt;/p&gt;&#xA;&lt;p&gt;&lt;div class=&#34;not-prose&#34;&gt;&#xA;&lt;figure&gt;&#xA;    &lt;img src=&#34;../../images/neovim-01.png&#34;&#xA;      alt=&#34;&#34; &#xA;      loading=&#34;lazy&#34;&#xA;    &gt;&#xA;  &lt;/figure&gt;&lt;/div&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;As you can see it is so lightweight and a simple colorscheme. I want to install some plugins to make it more fasion.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

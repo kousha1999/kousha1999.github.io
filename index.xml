@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kousha Zanjani (INVOXES) Blog</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Kousha Zanjani (INVOXES) Blog</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>Kousha.Zanjani@gmail.com (Kousha Zanjani)</managingEditor>
+    <webMaster>Kousha.Zanjani@gmail.com (Kousha Zanjani)</webMaster>
+    <copyright>Kousha Zanjani</copyright>
+    <lastBuildDate>Sat, 24 Aug 2024 09:11:56 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Exploring Android Exploitation: A Journey into Stack Overflow Vulnerability</title>
+      <link>http://localhost:1313/posts/2024/android-stack-overflow-exploitation-with-frida/</link>
+      <pubDate>Sat, 24 Aug 2024 09:11:56 +0200</pubDate><author>Kousha.Zanjani@gmail.com (Kousha Zanjani)</author>
+      <guid>http://localhost:1313/posts/2024/android-stack-overflow-exploitation-with-frida/</guid>
+      <description>&lt;p&gt;My journey into Android exploitation at the binary level started with a deep passion for the subject. I was determined to simplify the process as much as possible, but it turned out to be quite challenging. In this post, you&amp;rsquo;ll learn various aspects of Android exploitation, including:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;How to use the NDK to write an application.&lt;/li&gt;&#xA;&lt;li&gt;How to create a vulnerable lab environment for demonstrating Stack Overflow vulnerabilities.&lt;/li&gt;&#xA;&lt;li&gt;How to exploit Stack Overflow in Android binaries.&lt;/li&gt;&#xA;&lt;li&gt;How to Debug an Android Native Binary Remotely with GDB&lt;/li&gt;&#xA;&lt;li&gt;A deep dive into the capabilities of Frida!&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;I conducted all the steps in this post on an x86 Android emulator (Genymotion).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Analyzing MSFVenom Android Payload (Malware)</title>
+      <link>http://localhost:1313/posts/2022/msfvenom-android-malware-analysis/</link>
+      <pubDate>Wed, 04 May 2022 09:11:56 +0200</pubDate><author>Kousha.Zanjani@gmail.com (Kousha Zanjani)</author>
+      <guid>http://localhost:1313/posts/2022/msfvenom-android-malware-analysis/</guid>
+      <description>&lt;p&gt;MSFVenom is one of the most popular frameworks to create payloads, shellcodes, etc. I want to analyze a little bit of MSFVenom Android payload. So&lt;/p&gt;&#xA;&lt;p align=&#34;center&#34;&gt;&#xA;&lt;img src=&#34;https://user-images.githubusercontent.com/36133745/164783235-d8df38a6-e0f3-4e68-9f64-57fa21b98435.gif&#34;&gt;&#xA;&lt;/p&gt;&#xA;&lt;h2 id=&#34;-part-1---creating-an-android-payload-with-msfvenom&#34;&gt;🎬 Part 1 - Creating an Android payload with MSFVenom&lt;/h2&gt;&#xA;&lt;p&gt;Run your Kali Linux distribution (I use vagrant kalilinux/rolling box) and open a terminal.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Installing Kali Linux Box&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;vagrant box add kalilinux/rolling&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Create a Kali Linux VM&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkdir -p /home/&lt;span class=&#34;nv&#34;&gt;$USER&lt;/span&gt;/Desktop/vagrantmachines/kali&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; /home/&lt;span class=&#34;nv&#34;&gt;$USER&lt;/span&gt;/Desktop/vagrantmachines/kali&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;vagrant init kalilinux/rolling&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Set Kali Network to Bridge&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Add below line into Vagrantfile file below config.vm.box = &amp;#34;kalilinux/rolling&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  config.vm.network &lt;span class=&#34;s2&#34;&gt;&amp;#34;public_network&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Save and Exit from Vagrantfile&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Execute Kali Machine&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;vagrant up&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# SSH to Kali Machine&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;vagrant ssh&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# If you want to turn it off just execute the below command after you exit from SSH&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;vagrant halt&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Simply execute the below command.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>NahamCon CTF 2022 Android Writeup (Solutions)</title>
+      <link>http://localhost:1313/posts/2022/nahamcon2022-ctf-android-writeup/</link>
+      <pubDate>Sun, 01 May 2022 09:11:56 +0200</pubDate><author>Kousha.Zanjani@gmail.com (Kousha Zanjani)</author>
+      <guid>http://localhost:1313/posts/2022/nahamcon2022-ctf-android-writeup/</guid>
+      <description>&lt;p&gt;Two days ago, I helped my friends to solve CTF NahamCon2022 challenges. I was wondering about Android challenges, so I focused on them. In this blog post, I&amp;rsquo;ll explain how I solved Android challenges.&lt;/p&gt;&#xA;&lt;p align=&#34;center&#34;&gt;&#xA;&lt;img src=&#34;https://user-images.githubusercontent.com/36133745/164783235-d8df38a6-e0f3-4e68-9f64-57fa21b98435.gif&#34;&gt;&#xA;&lt;/p&gt;&#xA;&lt;h2 id=&#34;mobilize&#34;&gt;Mobilize&lt;/h2&gt;&#xA;&lt;p&gt;This one was an easy challenge for beginners. Anyone could solve this. :))&#xA;I opened the APK file in &lt;code&gt;Jadx-GUI&lt;/code&gt;. There was nothing in &lt;code&gt;MainActivity&lt;/code&gt;. So I just searched in &lt;code&gt;strings.xml&lt;/code&gt;, and there it is. FLAG! :)&lt;div class=&#34;not-prose&#34;&gt;&#xA;&lt;figure&gt;&#xA;    &lt;img src=&#34;https://user-images.githubusercontent.com/36133745/166149698-c9913021-76f4-445c-a48c-81b61c17b9e7.jpg&#34;&#xA;      alt=&#34;photo_2022-05-01_18-41-30&#34; &#xA;      loading=&#34;lazy&#34;&#xA;    &gt;&#xA;  &lt;/figure&gt;&lt;/div&gt;&#xA;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Android Trust Wallet Stealer Malware Analysis</title>
+      <link>http://localhost:1313/posts/2022/android-trust-wallet-stealer-malware-analysis/</link>
+      <pubDate>Sat, 23 Apr 2022 09:11:56 +0200</pubDate><author>Kousha.Zanjani@gmail.com (Kousha Zanjani)</author>
+      <guid>http://localhost:1313/posts/2022/android-trust-wallet-stealer-malware-analysis/</guid>
+      <description>&lt;p&gt;As far as technology improves, hackers do their best to abuse these technologies. Android became one of the most impressive technology and it&amp;rsquo;s going further. Hackers research Android Security every moment and Android malware spread more and more. There is a lot of malware that developed till today. I want to analyze an Android malware that is a Crypto Wallet Stealer.&lt;/p&gt;&#xA;&lt;p&gt;I have a sample which you can download it from &lt;a href=&#34;https://raw.githubusercontent.com/sk3ptre/AndroidMalware_2021/main/octCryptoStealer.zip&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;HERE&lt;/a&gt;&#xA;. MD5 Checksum: 70b07a67b618a6352bf35a735645b156&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>TeamTNT Miners in the Wild</title>
+      <link>http://localhost:1313/posts/2021/teamtnt-miners-in-the-wild/</link>
+      <pubDate>Wed, 22 Sep 2021 09:11:56 +0200</pubDate><author>Kousha.Zanjani@gmail.com (Kousha Zanjani)</author>
+      <guid>http://localhost:1313/posts/2021/teamtnt-miners-in-the-wild/</guid>
+      <description>&lt;p&gt;Last night my friend and I were Looking for some Redis NOSQL (Because Most of them do not have any authentication of course 😆) in Shodan and Censys for Bug Hunting.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve found some interesting things which led me to write this blog post.&lt;/p&gt;&#xA;&lt;p&gt;Most of the Redis seemed to be exploited and infected with a Miner by TeamTNT.&lt;/p&gt;&#xA;&lt;p&gt;I used shodan query &lt;code&gt;port:6379&lt;/code&gt; to find Redis services.&lt;div class=&#34;not-prose&#34;&gt;&#xA;&lt;figure&gt;&#xA;    &lt;img src=&#34;../../images/shodan.png&#34;&#xA;      alt=&#34;&#34; &#xA;      loading=&#34;lazy&#34;&#xA;    &gt;&#xA;  &lt;/figure&gt;&lt;/div&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;Redis has a tool called &lt;code&gt;redis-cli&lt;/code&gt; which lets you interact with Redis servers.&#xA;I used it to connect Redis servers to find vulnerabilities and sensitive data for bug hunting reports.&#xA;To connect a Redis server you can use &lt;code&gt;redis-cli -h [Redis Server IP]&lt;/code&gt;.&lt;div class=&#34;not-prose&#34;&gt;&#xA;&lt;figure&gt;&#xA;    &lt;img src=&#34;../../images/redis-cli-connection.png&#34;&#xA;      alt=&#34;&#34; &#xA;      loading=&#34;lazy&#34;&#xA;    &gt;&#xA;  &lt;/figure&gt;&lt;/div&gt;&#xA;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>postMessage and Misconfigurations</title>
+      <link>http://localhost:1313/posts/2021/postmessage-vulnerabilities/</link>
+      <pubDate>Tue, 01 Jun 2021 09:11:56 +0200</pubDate><author>Kousha.Zanjani@gmail.com (Kousha Zanjani)</author>
+      <guid>http://localhost:1313/posts/2021/postmessage-vulnerabilities/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ll discuss the postMessage feature and how it can be vulnerable by wrong way implementation. First I&amp;rsquo;m going to talk about what is postMessage feature actually,&#xA;then we are going to code and use it, at the end we will take a look at vulnerabilities.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-postmessage&#34;&gt;What is postMessage?&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;postMessage()&lt;/code&gt; is a feature introduced in HTML5 and you can use it in JavaScript.&#xA;This feature lets you send data between different Window objects (it can be an &lt;code&gt;iframe&lt;/code&gt; or &lt;code&gt;window.open()&lt;/code&gt;).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lemon Duck Malware</title>
+      <link>http://localhost:1313/posts/2021/lemon-duck-malware-analysis/</link>
+      <pubDate>Mon, 24 May 2021 09:11:56 +0200</pubDate><author>Kousha.Zanjani@gmail.com (Kousha Zanjani)</author>
+      <guid>http://localhost:1313/posts/2021/lemon-duck-malware-analysis/</guid>
+      <description>&lt;p&gt;A month ago I&amp;rsquo;ve got a Log from a company (we will call it victim corp from now) that it was detected as a malicios activity. What I&amp;rsquo;ve got from that report log was just an URL, Funny right?! :))&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve start to google dork it. After some search and googling I&amp;rsquo;ve found some URLs and one of them was from &lt;code&gt;app.any.run&lt;/code&gt; website which is one of the best sandbox for malware analysis and downloading samples. It seem it&amp;rsquo;s already analyzed; however, I didn&amp;rsquo;t hesitate and I started analyzing.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Extract PNG Malware from PCAP File</title>
+      <link>http://localhost:1313/posts/2021/extract-png-malware-from-pcap-file/</link>
+      <pubDate>Thu, 13 May 2021 09:11:56 +0200</pubDate><author>Kousha.Zanjani@gmail.com (Kousha Zanjani)</author>
+      <guid>http://localhost:1313/posts/2021/extract-png-malware-from-pcap-file/</guid>
+      <description>&lt;p&gt;I want to talk about How I detected and extracted PNG malware from a PCAP file.&lt;/p&gt;&#xA;&lt;p&gt;What we will cover in this post:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Introduction to Packet Analysis&lt;/li&gt;&#xA;&lt;li&gt;Introduction to Wireshark&lt;/li&gt;&#xA;&lt;li&gt;Detect Malicious Network Traffic&lt;/li&gt;&#xA;&lt;li&gt;Partial Content Responses&lt;/li&gt;&#xA;&lt;li&gt;Impact of Connection Problems&lt;/li&gt;&#xA;&lt;li&gt;Extract Malicious File from HTTP for analysis and Reverse Engineering&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Nowadays cyber attacks have become more sophisticated. The use of malware is increasing, Malware comes in many forms such as:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>My FreeBSD Journey</title>
+      <link>http://localhost:1313/posts/2021/freebsd-journey/</link>
+      <pubDate>Tue, 04 May 2021 09:11:56 +0200</pubDate><author>Kousha.Zanjani@gmail.com (Kousha Zanjani)</author>
+      <guid>http://localhost:1313/posts/2021/freebsd-journey/</guid>
+      <description>&lt;p&gt;&lt;div class=&#34;not-prose&#34;&gt;&#xA;&lt;figure&gt;&#xA;    &lt;img src=&#34;../../images/beastie.logo&#34;&#xA;      alt=&#34;&#34; &#xA;      loading=&#34;lazy&#34;&#xA;    &gt;&#xA;  &lt;/figure&gt;&lt;/div&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;m a GNU/Linux user and I had Arch/Fedora/&amp;hellip; distributions for a while. I was passionate about BSDs especially FreeBSD. It has a devil-like logo (Beastie :)) which is cute and I like it. So I decided to share my experience when I installed it on my laptop as the main OS.&lt;/p&gt;&#xA;&lt;p&gt;After installation, I had a Terminal which is not a good idea when you&amp;rsquo;re using an OS as your daily/Personal OS, which made me install a GUI.&#xA;We need root privilege to do some kinds of stuff so instead &lt;code&gt;su&lt;/code&gt; command I prefer to use &lt;code&gt;sudo&lt;/code&gt;, so I installed it first.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>First Experience with Neovim</title>
+      <link>http://localhost:1313/posts/2021/first-experience-with-neovim/</link>
+      <pubDate>Fri, 02 Apr 2021 09:11:56 +0200</pubDate><author>Kousha.Zanjani@gmail.com (Kousha Zanjani)</author>
+      <guid>http://localhost:1313/posts/2021/first-experience-with-neovim/</guid>
+      <description>&lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;&#xA;&lt;p&gt;I&amp;rsquo;m a Vim user but, I love to try new things and this time, I tried Neovim.&#xA;Installation is so easy, I&amp;rsquo;m an Arch Linux user so it is easy as enter below command.&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;sudo pacman -S neovim&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;You can check the &lt;a href=&#34;https://github.com/neovim/neovim/wiki/Installing-Neovim&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Neovim Github&lt;/a&gt;&#xA; for installation steps.&lt;/p&gt;&#xA;&lt;p&gt;When completed, you can run Neovim by &lt;code&gt;nvim&lt;/code&gt; command.&lt;/p&gt;&#xA;&lt;p&gt;&lt;div class=&#34;not-prose&#34;&gt;&#xA;&lt;figure&gt;&#xA;    &lt;img src=&#34;../../images/neovim-01.png&#34;&#xA;      alt=&#34;&#34; &#xA;      loading=&#34;lazy&#34;&#xA;    &gt;&#xA;  &lt;/figure&gt;&lt;/div&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;As you can see it is so lightweight and a simple colorscheme. I want to install some plugins to make it more fasion.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/freebsd-journey-part-2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>Kousha.Zanjani@gmail.com (Kousha Zanjani)</author>
+      <guid>http://localhost:1313/posts/freebsd-journey-part-2/</guid>
+      <description>&lt;p&gt;How to I connected FreeBSD to my Android with ADB?&lt;/p&gt;&#xA;&lt;p&gt;mount_msdosfs?&lt;/p&gt;&#xA;&lt;p&gt;Run BurpSuite in FreeBSD?&lt;/p&gt;&#xA;&lt;p&gt;mixer / sysctl hw.snd.default_unit / /dev/sndstat file / test audio with /dev/dspX&lt;/p&gt;&#xA;&lt;p&gt;pkg audit -F&#xA;freebsd-update &amp;amp; freebsd-static&lt;/p&gt;&#xA;&lt;p&gt;change $SHELL from classic sh to tcsh with chsh&lt;/p&gt;&#xA;&lt;p&gt;pcmanfm&lt;/p&gt;&#xA;&lt;p&gt;xdg-mime default pcmanfm.desktop inode/directory&lt;/p&gt;&#xA;&lt;p&gt;xdg-mime default xpdf.desktop application/pdf&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/postmessage-vulnerabilities/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>Kousha.Zanjani@gmail.com (Kousha Zanjani)</author>
+      <guid>http://localhost:1313/posts/postmessage-vulnerabilities/</guid>
+      <description>&lt;h1 id=&#34;postmessage-and-misconfigurations&#34;&gt;postMessage and Misconfigurations&lt;/h1&gt;&#xA;&lt;p&gt;I&amp;rsquo;ll discuss about postMessage feature and how it can be vulnerable by wrong way implementation. First I&amp;rsquo;m going to talk about what is postMessage feature actually,&#xA;then we are going to code and use it, at the end we will take a look at vulnerabilities.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-postmessage&#34;&gt;What is postMessage?&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;postMessage()&lt;/code&gt; is a feature that introduced in HTML5 and you can use it by JavaScript.&#xA;This feature let you send data between different Window objects (it can be an &lt;code&gt;iframe&lt;/code&gt; or &lt;code&gt;window.open()&lt;/code&gt;).&lt;code&gt;SOP&lt;/code&gt; is a mechanism which block the cross-origin requests,&#xA;It means if we request a resource that is not in the same-origin,&#xA;our request will send but the response will return an error. In a word &lt;strong&gt;Origin&lt;/strong&gt; is:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/manifest.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>Kousha.Zanjani@gmail.com (Kousha Zanjani)</author>
+      <guid>http://localhost:1313/manifest.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/search/_index.de/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>Kousha.Zanjani@gmail.com (Kousha Zanjani)</author>
+      <guid>http://localhost:1313/search/_index.de/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/search/_index.es/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>Kousha.Zanjani@gmail.com (Kousha Zanjani)</author>
+      <guid>http://localhost:1313/search/_index.es/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/search/_index.fr/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>Kousha.Zanjani@gmail.com (Kousha Zanjani)</author>
+      <guid>http://localhost:1313/search/_index.fr/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/search/_index.hi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>Kousha.Zanjani@gmail.com (Kousha Zanjani)</author>
+      <guid>http://localhost:1313/search/_index.hi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/search/_index.jp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>Kousha.Zanjani@gmail.com (Kousha Zanjani)</author>
+      <guid>http://localhost:1313/search/_index.jp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/search/_index.nl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>Kousha.Zanjani@gmail.com (Kousha Zanjani)</author>
+      <guid>http://localhost:1313/search/_index.nl/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/search/_index.pl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>Kousha.Zanjani@gmail.com (Kousha Zanjani)</author>
+      <guid>http://localhost:1313/search/_index.pl/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/search/_index.ru/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>Kousha.Zanjani@gmail.com (Kousha Zanjani)</author>
+      <guid>http://localhost:1313/search/_index.ru/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/search/_index.zh-cn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>Kousha.Zanjani@gmail.com (Kousha Zanjani)</author>
+      <guid>http://localhost:1313/search/_index.zh-cn/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>Kousha.Zanjani@gmail.com (Kousha Zanjani)</author>
+      <guid>http://localhost:1313/about/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m Kousha (@INVOXES), a PenTester and Independent Security Researcher with a passion for exploring the depths of cybersecurity. I specialize in penetration testing across various fields and focus my research on web and Android security. I love dissecting complex systems to understand how they work and uncover potential vulnerabilities.&lt;/p&gt;&#xA;&lt;p&gt;Welcome to my blog, where I share my journey, insights, and discoveries in the ever-evolving world of security!&lt;/p&gt;&#xA;&lt;p&gt;Get in touch if you want via  &lt;a href=&#34;http://localhost:1313/contact&#34;&gt;Contact&lt;/a&gt;&#xA;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

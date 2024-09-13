@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <title>NahamCon CTF 2022 Android Writeup (Solutions) :: Kousha Zanjani (INVOXES) Blog</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="Two days ago, I helped my friends to solve CTF NahamCon2022 challenges. I was wondering about Android challenges, so I focused on them. In this blog post, I&rsquo;ll explain how I solved Android challenges.
+Mobilize This one was an easy challenge for beginners. Anyone could solve this. :)) I opened the APK file in Jadx-GUI. There was nothing in MainActivity. So I just searched in strings.xml, and there it is. FLAG! :) "
+/>
+<meta
+  name="keywords"
+  content="Android, CTF, CaptureTheFlag, ReverseEngineering"
+/>
+<meta name="robots" content="noodp" /><link rel="manifest" href="/manifest.json" /><meta property="og:url" content="http://localhost:1313/posts/2022/nahamcon2022-ctf-android-writeup/">
+  <meta property="og:site_name" content="Kousha Zanjani (INVOXES) Blog">
+  <meta property="og:title" content="NahamCon CTF 2022 Android Writeup (Solutions)">
+  <meta property="og:description" content="Two days ago, I helped my friends to solve CTF NahamCon2022 challenges. I was wondering about Android challenges, so I focused on them. In this blog post, I’ll explain how I solved Android challenges.
+Mobilize This one was an easy challenge for beginners. Anyone could solve this. :)) I opened the APK file in Jadx-GUI. There was nothing in MainActivity. So I just searched in strings.xml, and there it is. FLAG! :) ">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-05-01T09:11:56+02:00">
+    <meta property="article:modified_time" content="2022-05-01T09:11:56+02:00">
+    <meta property="article:tag" content="Android">
+    <meta property="article:tag" content="CTF">
+    <meta property="article:tag" content="CaptureTheFlag">
+    <meta property="article:tag" content="ReverseEngineering">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="NahamCon CTF 2022 Android Writeup (Solutions)">
+  <meta name="twitter:description" content="Two days ago, I helped my friends to solve CTF NahamCon2022 challenges. I was wondering about Android challenges, so I focused on them. In this blog post, I’ll explain how I solved Android challenges.
+Mobilize This one was an easy challenge for beginners. Anyone could solve this. :)) I opened the APK file in Jadx-GUI. There was nothing in MainActivity. So I just searched in strings.xml, and there it is. FLAG! :) ">
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2022/nahamcon2022-ctf-android-writeup/" />
+
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="/css/index.min.c860e17f20d9f258820c02bf7ab3f57c9595d0bc21dede7eda08ccd63ba3f4cc.css">
+
+
+
+
+
+
+
+
+
+  
+  
+
+</head>
+<body class="flex flex-col min-h-screen w-full bg-slate-50 dark:bg-gray-800"><header class="flex flex-none justify-center z-10">
+    <div class="flex flex-row gap justify-between w-full max-w-4xl lg:max-w-5xl h-12 mt-3">
+  <div class="flex-none ml-2 md:ml-0">
+    <a href="/" class="">
+      <img class="h-12 w-12 rounded-full object-cover bg-gray-100" src="/logo.jpg" alt="logo">
+    </a>
+  </div>
+  <div class="flex-1"></div>
+  <div class="flex-none">
+    
+
+
+
+<nav class="h-full static">
+  <button id="navbar-menu-toggle" type="button" class="inline-flex items-center p-2 text-sm text-slate-800 dark:text-slate-200 rounded-lg md:hidden" aria-controls="navbar-menu" aria-expanded="false">
+    <span class="sr-only">Open main menu</span>
+    <i class="w-8 h-8">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 6l16 0" />
+  <path d="M4 12l16 0" />
+  <path d="M4 18l16 0" />
+</svg>
+
+    </i>
+  </button>
+  <div class="absolute md:static top-16 left-0 right-0 z-50 hidden w-full md:block md:w-auto" id="navbar-menu">
+    <ul class="flex flex-col mx-2 md:mx-0 md:flex-row md:border-0 rounded-sm md:rounded-full px-3 text-base font-medium text-slate-800 dark:text-slate-200 shadow-lg bg-white dark:bg-gray-600 shadow-slate-800/5 dark:shadow-slate-200/5 ring-1 ring-slate-900/5 dark:ring-slate-100/5">
+    
+        <li id="post" class="">
+          <a class="block px-3 py-3 hover:text-emerald-600 text-emerald-600"
+            href="/posts/" title="Blog">Blog</a>
+        </li>
+      
+    
+        <li id="about" class="">
+          <a class="block px-3 py-3 hover:text-emerald-600"
+            href="/about/" title="About">About</a>
+        </li>
+      
+    
+        <li id="contact" class="">
+          <a class="block px-3 py-3 hover:text-emerald-600"
+            href="" title="Contact">Contact</a>
+        </li>
+      
+    
+    </ul>
+  </div>
+</nav>
+
+
+  </div>
+  
+  <div class="flex-none mx-1"></div>
+  
+  <div class="flex-none md:hidden">
+    <a href=/search/ class="inline-flex items-center p-2 text-sm text-slate-800 dark:text-slate-200 rounded-lg" aria-controls="navbar-menu" aria-expanded="false">
+      <span class="sr-only">Search</span>
+      <i class="w-8 h-8">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+    <path d="M21 21l-6 -6" />
+</svg>
+
+      </i>
+    </a>
+  </div>
+  <div class="darkmode-toggle flex flex-none mr-2 md:mr-0">
+    <label for="darkmode-toggle" class="flex items-center px-3 cursor-pointer rounded-full bg-gray-100 dark:bg-gray-600" title="Toggle dark mode">
+      <input name="darkmode-toggle" id="darkmode-toggle" type="checkbox" class="sr-only peer" aria-label="Toggle dark mode">
+      <div class="group flex flex-row gap-1 justify-center h-8 px-1 rounded-full bg-white dark:bg-gray-700">
+        <i class="h-6 w-6 flex-none rounded-full bg-yellow-400 place-self-center peer-checked:group-[]:invisible">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brightness-down" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+   <path d="M12 5l0 .01"></path>
+   <path d="M17 7l0 .01"></path>
+   <path d="M19 12l0 .01"></path>
+   <path d="M17 17l0 .01"></path>
+   <path d="M12 19l0 .01"></path>
+   <path d="M7 17l0 .01"></path>
+   <path d="M5 12l0 .01"></path>
+   <path d="M7 7l0 .01"></path>
+</svg>
+
+        </i>
+        <i class="h-6 w-6 flex-none rounded-full place-self-center invisible peer-checked:group-[]:visible">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-moon-stars" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+   <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"></path>
+   <path d="M19 11h2m-1 -1v2"></path>
+</svg>
+
+        </i>
+      </div>
+    </label>
+  </div>
+</div>
+
+  </header>
+  <main class="flex flex-auto justify-center">
+    
+<div class="w-full max-w-4xl lg:max-w-5xl">
+  <div class="flex flex-col mt-6 mx-2 md:mx-0 rounded-lg overflow-hidden shadow-md bg-white dark:bg-gray-700">
+    <div>
+      <a href="/posts/2022/nahamcon2022-ctf-android-writeup/">
+        
+      </a>
+    </div>
+    <div class="flex flex-col gap-y-3 p-6">
+      <h1 class="text-4xl font-semibold text-slate-800 dark:text-slate-100">
+        <a href="/posts/2022/nahamcon2022-ctf-android-writeup/">NahamCon CTF 2022 Android Writeup (Solutions)</a>
+      </h1>
+
+      
+      
+  <ul class="flex flex-row flex-wrap text-slate-500 dark:text-slate-300">
+    
+    
+      
+      <li>
+        <a href="/tags/android/"
+          class="flex flex-row text-sm mr-2 py-1">
+          <i class="h-5 w-5 flex-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M5 9l14 0"></path>
+   <path d="M5 15l14 0"></path>
+   <path d="M11 4l-4 16"></path>
+   <path d="M17 4l-4 16"></path>
+</svg>
+
+          </i>
+          <span class="ml-0">Android</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tags/ctf/"
+          class="flex flex-row text-sm mr-2 py-1">
+          <i class="h-5 w-5 flex-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M5 9l14 0"></path>
+   <path d="M5 15l14 0"></path>
+   <path d="M11 4l-4 16"></path>
+   <path d="M17 4l-4 16"></path>
+</svg>
+
+          </i>
+          <span class="ml-0">CTF</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tags/capturetheflag/"
+          class="flex flex-row text-sm mr-2 py-1">
+          <i class="h-5 w-5 flex-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M5 9l14 0"></path>
+   <path d="M5 15l14 0"></path>
+   <path d="M11 4l-4 16"></path>
+   <path d="M17 4l-4 16"></path>
+</svg>
+
+          </i>
+          <span class="ml-0">CaptureTheFlag</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tags/reverseengineering/"
+          class="flex flex-row text-sm mr-2 py-1">
+          <i class="h-5 w-5 flex-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M5 9l14 0"></path>
+   <path d="M5 15l14 0"></path>
+   <path d="M11 4l-4 16"></path>
+   <path d="M17 4l-4 16"></path>
+</svg>
+
+          </i>
+          <span class="ml-0">ReverseEngineering</span>
+        </a>
+      </li>
+      
+    
+  </ul>
+
+
+
+      <div class="flex flex-col gap-y-1 md:flex-row md:gap-y-0 md:gap-x-4 text-slate-500 dark:text-slate-300">
+  
+  
+  <div class="flex flex-row text-base gap-x-1">
+    <i class="h-6 w-6 flex-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z"></path>
+   <path d="M16 3v4"></path>
+   <path d="M8 3v4"></path>
+   <path d="M4 11h16"></path>
+   <path d="M11 15h1"></path>
+   <path d="M12 15v3"></path>
+</svg>
+
+    </i>
+    <time datetime="2022-05-01T09:11:56&#43;02:00">
+      2022-05-01
+    </time>
+  </div>
+
+  <div class="flex flex-row text-base gap-x-1">
+    <i class="h-6 w-6 flex-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hourglass-high" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M6.5 7h11"></path>
+   <path d="M6 20v-2a6 6 0 1 1 12 0v2a1 1 0 0 1 -1 1h-10a1 1 0 0 1 -1 -1z"></path>
+   <path d="M6 4v2a6 6 0 1 0 12 0v-2a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1z"></path>
+</svg>
+
+    </i>
+    <span>
+      4 minutes to read
+    </span>
+  </div>
+</div>
+
+      <div class="flex flex-col gap-y-1 md:flex-row md:gap-y-0 md:gap-x-4 text-slate-500 dark:text-slate-300">
+  <div class="flex flex-row text-base gap-x-1">
+    <i class="h-6 w-6 flex-none">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+    class="icon icon-tabler icons-tabler-outline icon-tabler-user">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+    <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+    </i>
+    <span>Kousha Zanjani</span>
+  </div>
+</div>
+
+      
+        
+        <section class="prose prose-slate dark:prose-invert w-full max-w-4xl lg:max-w-5xl mt-6">
+          <h2>Table of Contents</h2>
+          <aside><nav id="TableOfContents">
+  <ul>
+    <li><a href="#mobilize">Mobilize</a></li>
+    <li><a href="#click-me">Click Me</a></li>
+    <li><a href="#otpvault">OTPVault</a></li>
+    <li><a href="#secure-notes">Secure Notes</a></li>
+  </ul>
+</nav></aside>
+        </section>
+        
+      
+
+      <article class="mt-6 w-full max-w-4xl lg:max-w-5xl prose prose-slate dark:prose-invert prose-quoteless post-content">
+        <p>Two days ago, I helped my friends to solve CTF NahamCon2022 challenges. I was wondering about Android challenges, so I focused on them. In this blog post, I&rsquo;ll explain how I solved Android challenges.</p>
+<p align="center">
+<img src="https://user-images.githubusercontent.com/36133745/164783235-d8df38a6-e0f3-4e68-9f64-57fa21b98435.gif">
+</p>
+<h2 id="mobilize">Mobilize</h2>
+<p>This one was an easy challenge for beginners. Anyone could solve this. :))
+I opened the APK file in <code>Jadx-GUI</code>. There was nothing in <code>MainActivity</code>. So I just searched in <code>strings.xml</code>, and there it is. FLAG! :)<div class="not-prose">
+<figure>
+    <img src="https://user-images.githubusercontent.com/36133745/166149698-c9913021-76f4-445c-a48c-81b61c17b9e7.jpg"
+      alt="photo_2022-05-01_18-41-30" 
+      loading="lazy"
+    >
+  </figure></div>
+</p>
+<h2 id="click-me">Click Me</h2>
+<p>I think this challenge was easy too. You just had to change a little variable in <code>smali</code> code.
+In the <code>MainActivity</code>, We have 3 interesting parts. It is obvious that challenges want us (in the <code>getFlagButtonClick</code> function [Section 2]) to click <code>99999999</code> times on something to get the flag, but also stops us being clicking after <code>13371337</code>. I&rsquo;m not crazy enough to click that many times. If you want to be a crazy hacker, you can just hook <code>cookieViewClick</code> with <strong>Frida</strong> to bypass that limit and then you are free to go by clicking <code>99999999</code> on the button. After that, the <code>clickme</code> native code will return the flag.
+<div class="not-prose">
+<figure>
+    <img src="https://user-images.githubusercontent.com/36133745/166148625-32b5f0ba-991c-4f3d-ae5a-63dc907a7219.png"
+      alt="2022-05-01_17-40" 
+      loading="lazy"
+    >
+  </figure></div>
+</p>
+<p>But time is a matter so I&rsquo;m gonna just change <code>99999999</code> to <code>2</code>. :)
+You can do this in the <code>smali</code> code. So I decompiled app with the <code>apktool</code> and changed <code>0x5f5e0ff</code> (int-&gt;99999999) to <code>0x2</code> (int-&gt;2). Then I build it and resigned it.
+<div class="not-prose">
+<figure>
+    <img src="https://user-images.githubusercontent.com/36133745/166152627-b96db945-8b2c-4222-ae23-e44bc7514b01.png"
+      alt="2022-05-01_19-49" 
+      loading="lazy"
+    >
+  </figure></div>
+</p>
+<p>Now you can just click on the cookie 2 times to get the flag.
+<div class="not-prose">
+<figure>
+    <img src="https://user-images.githubusercontent.com/36133745/166148638-679532d1-7b28-4127-a2a8-733404d1e680.jpg"
+      alt="photo_2022-05-01_17-52-12" 
+      loading="lazy"
+    >
+  </figure></div>
+</p>
+<p>Of course, you could&rsquo;ve done this by reversing the &ldquo;clickme&rdquo; native code, but as I said, time is a matter!</p>
+<h2 id="otpvault">OTPVault</h2>
+<p>This application was a little bit harder, at least you had to use your brain. Challenge developed with <code>ReactNative</code> framework. This means you have to go for reading JavaScript and again this means, opening the <code>index.android.bundle</code> from the <code>/asset</code> folder. :)
+I opened <code>index.android.bundle</code> in <code>Developer Console</code> (Chromium).<div class="not-prose">
+<figure>
+    <img src="https://user-images.githubusercontent.com/36133745/166148588-01c1ddf4-2109-4a4e-8cd0-c2399dc1f8a6.png"
+      alt="2022-05-01_17-59" 
+      loading="lazy"
+    >
+  </figure></div>
+</p>
+<p>OK, that&rsquo;s a mess. Who can even read that minified code?! you know I&rsquo;m right. So I used the <code>pretty print</code> feature. That&rsquo;s far better now.<div class="not-prose">
+<figure>
+    <img src="https://user-images.githubusercontent.com/36133745/166149917-8efa9faa-35c5-44a7-803b-78dc85c73743.jpg"
+      alt="photo_2022-05-01_18-46-22" 
+      loading="lazy"
+    >
+  </figure></div>
+</p>
+<p>I tried to be smart and search for the <code>flag</code> keyword, but I just fooled myself. :))
+Then I analyzed the code from the end of the script! That works a lot better. Then I found this request. There are a lot of bullshits, the real problem is those conditions (switch-case). You don&rsquo;t need that <code>n.token</code> or even that <code>n.s</code> whatever it is! I used the <code>curl</code> command to see the result. Also, there is a <code>/flag</code> path.<div class="not-prose">
+<figure>
+    <img src="https://user-images.githubusercontent.com/36133745/166151097-a010cc41-8c40-41e2-9aa7-4f9d48bd1cd3.png"
+      alt="2022-05-01_19-16" 
+      loading="lazy"
+    >
+  </figure></div>
+</p>
+<p><div class="not-prose">
+<figure>
+    <img src="https://user-images.githubusercontent.com/36133745/166148672-fb577ca7-7ba6-4c2e-a96a-2616665c5978.png"
+      alt="2022-05-01_18-08" 
+      loading="lazy"
+    >
+  </figure></div>
+</p>
+<p>So it just says give me the damn authorization header so I did. Thanks for the Flag. :)<div class="not-prose">
+<figure>
+    <img src="https://user-images.githubusercontent.com/36133745/166150100-9bdd007e-b825-4525-95c3-86f705f501f9.jpg"
+      alt="photo_2022-05-01_18-50-25" 
+      loading="lazy"
+    >
+  </figure></div>
+</p>
+<h2 id="secure-notes">Secure Notes</h2>
+<p>This challenge difficulty was just like the OTPVault, maybe a little more tricky.
+The application is sick and contains 2 Main/Launcher activities! :/<div class="not-prose">
+<figure>
+    <img src="https://user-images.githubusercontent.com/36133745/166148889-042ecdf9-3153-49df-95c1-7f5ead692cdd.png"
+      alt="2022-05-01_18-19" 
+      loading="lazy"
+    >
+  </figure></div>
+</p>
+<p>BTW, the real code that we have to deal with, is in the <code>LoginActivity</code>.
+<div class="not-prose">
+<figure>
+    <img src="https://user-images.githubusercontent.com/36133745/166150153-85ba23ce-ccd2-47be-aabf-5204acdf691e.png"
+      alt="2022-05-01_18-22" 
+      loading="lazy"
+    >
+  </figure></div>
+</p>
+<p>It seems we have an encrypted database. It is obvious whatever is this, It stores a flag! So let&rsquo;s decrypt it. In the first red box we can see there is a function named <code>d.k()</code> which calls in <code>onClick()</code> method. Let&rsquo;s see what is it!<div class="not-prose">
+<figure>
+    <img src="https://user-images.githubusercontent.com/36133745/166150278-5959d1f5-ea58-41cb-9f9a-e60860eff75c.jpg"
+      alt="photo_2022-05-01_18-55-07" 
+      loading="lazy"
+    >
+  </figure></div>
+</p>
+<p>Oooh. There you are <code>AES</code> encryption! But we can&rsquo;t see <code>AES</code> Mode! <code>ECB</code> or <code>CBC</code>?! Based on the Oracle documentation, the <strong>default mode</strong> is <code>ECB</code>. the first parameter of this function is key (<code>str</code>)! In <code>LoginActivity</code> (previous image) you can see key is <code>this.f1583b.getText().toString()</code>, but it repeats 4 times! AES Key is 16-byte. So it means we have to find a key that contains 4 bytes (4 characters) that will repeat 4 times (4 * 4 = 16, Duh&hellip;).</p>
+<p>Before writing a brute-force script for that encrypted database, I had a look at the <code>MainActivity</code>. It seems the decrypted data must be JSON.<div class="not-prose">
+<figure>
+    <img src="https://user-images.githubusercontent.com/36133745/166149450-3c358d92-37e4-44e4-b717-93eba165e22c.png"
+      alt="2022-05-01_18-35" 
+      loading="lazy"
+    >
+  </figure></div>
+</p>
+<p>So I extracted db.encrypted from the <code>/asset</code> folder (via <code>apktool</code>). Then I wrote a little python script for brute force. Aaaaand Yello Flag!<div class="not-prose">
+<figure>
+    <img src="https://user-images.githubusercontent.com/36133745/166150939-0bd79358-1183-4f37-ac7d-6af8c409ca3f.jpg"
+      alt="photo_2022-05-01_19-12-16" 
+      loading="lazy"
+    >
+  </figure></div>
+</p>
+<p><div class="not-prose">
+<figure>
+    <img src="https://user-images.githubusercontent.com/36133745/166149503-06f33aab-422b-4f36-81b8-156a36cb04c8.png"
+      alt="2022-05-01_18-33_1" 
+      loading="lazy"
+    >
+  </figure></div>
+</p>
+
+      </article>
+
+      
+
+
+
+
+    </div>
+  </div>
+</div>
+
+  </main>
+  <footer class="flex flex-none justify-center">
+    <section class="flex flex-col md:flex-row mx-2 md:mx-0 gap-2 md:gap-0 justify-between w-full max-w-4xl lg:max-w-5xl py-6 text-slate-500 dark:text-slate-300">
+  <div class="flex flex-row">
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+  <div class="grow"></div>
+  <div class="flex flex-row">
+    <i class="h-6 w-6 flex-none"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+   <path d="M14 9.75a3.016 3.016 0 0 0 -4.163 .173a2.993 2.993 0 0 0 0 4.154a3.016 3.016 0 0 0 4.163 .173"></path>
+</svg>
+</i> 2022 - 2024 Kousha Zanjani
+    
+  </div>
+  
+  <div class="flex flex-row">
+    <span class="ml-0 pl-0 md:ml-2 md:pl-2 border-l-0 md:border-l border-slate-300 dark:border-slate-400">
+      Powered by <a href="https://gohugo.io" target="_blank" rel="noopener" class="underline">Hugo</a> <span class="text-red-600">&hearts;</span> <a href="https://github.com/tomowang/hugo-theme-tailwind" target="_blank" rel="noopener" class="underline">Tailwind</a>
+    </span>
+  </div>
+  
+</section>
+
+  </footer>
+  <script src="/main.min.c6372b6836971865bd94bfde974748aca8415824a2facab6ccd66a87384bfacb.js"></script>
+
+
+
+
+</body>
+</html>
