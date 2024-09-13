@@ -1,6 +1,6 @@
 #theme: jekyll-theme-minimal
 # theme: jekyll-theme-slate
-theme: jekyll-theme-minima
+theme: minima
 #theme: jekyll-theme-architect
 logo: ./images/bavatar.png
 title: INVOXES Blog
