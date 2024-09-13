@@ -1,0 +1,13 @@
+{{ define "main" }}
+<div class="posts">
+davai
+    {{ range .Site.Pages }}
+        {{ if eq .Type "post" }}
+        <article>
+            <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+            <p>{{ .Summary }}</p>
+        </article>
+        {{ end }}
+    {{ end }}
+</div>
+{{ end }}

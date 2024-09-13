@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Site.Title }}</title>
+    {{ .Site.Head }}
+</head>
+<body>
+    <header>
+        <h1>{{ .Site.Title }}</h1>
+    </header>
+    <main>
+        <div class="posts">
+davai davai
+            {{ range .Site.RegularPages }}
+            <article>
+                <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+                <p>{{ .Summary }}</p>
+            </article>
+            {{ end }}
+        </div>
+    </main>
+    <footer>
+        <p>Powered by Hugo</p>
+    </footer>
+</body>
+</html>

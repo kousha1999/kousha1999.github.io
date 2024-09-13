@@ -1,0 +1,60 @@
+baseURL = "http://localhost:1313"
+title = "Kousha Zanjani (INVOXES) Blog"
+author = "Kousha Zanjani"
+copyright = "Kousha Zanjani"
+paginate = 10
+languageCode = "en"
+theme = "tailwind"
+
+[params]
+  # dir name of your blog content (default is `content/posts`).
+  # the list of set content will show up on your index page (baseurl).
+  contentTypeName = "posts"
+
+  keywords = "exploitation, reverse engineering, tech, low-level, analysis, experiments, Linux, Android, web, WebApp, web application, WebSecurity"
+  subtitle = ""
+
+  showAuthor = true
+
+  [params.author]
+    name = "Kousha Zanjani"
+    email = "Kousha.Zanjani@gmail.com"
+
+  [params.header]
+    logo = "logo.png"
+
+  [params.footer]
+    since = 2022
+    poweredby = true
+
+  # max number of tags in the sidebar
+  [params.sidebar]
+    limit = 100 
+
+[menu]
+
+  [[menu.main]]
+    identifier = "post"
+    name = "Blog"
+    pageRef = "/posts"
+    weight = 10 
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    pageRef = "/about"
+    weight = 20 
+
+  [[menu.main]]
+    identifier = "contact"
+    name = "Contact"
+    pageRef = "/contact"
+    weight = 30 
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  series = "series"
+
+[markup]
+  _merge = "deep"
