@@ -21,7 +21,7 @@ theme = "tailwind"
     email = "Kousha.Zanjani@gmail.com"
 
   [params.header]
-    logo = "https://github.com/user-attachments/assets/6f077786-4290-46c5-a0d4-7254b647e246"
+    logo = "logo.png"
 
   [params.footer]
     since = 2022
