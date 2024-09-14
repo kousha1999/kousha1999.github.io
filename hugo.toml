@@ -21,7 +21,7 @@ theme = "tailwind"
     email = "Kousha.Zanjani@gmail.com"
 
   [params.header]
-    logo = "logo.png"
+    logo = "logo.jpg"
 
   [params.footer]
     since = 2022
