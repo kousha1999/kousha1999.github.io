@@ -2,6 +2,7 @@
 title: "NahamCon CTF 2022 Android Writeup (Solutions)"
 date: "2022-05-01T09:11:56+02:00"
 author: "Kousha Zanjani"
+image: https://github.com/user-attachments/assets/425e6ae6-fae7-424a-8eee-984fc931e983
 tags: ["Android", "CTF", "CaptureTheFlag", "ReverseEngineering"]
 keywords: ["Android", "CTF", "CaptureTheFlag", "ReverseEngineering"]
 readingTime: true
