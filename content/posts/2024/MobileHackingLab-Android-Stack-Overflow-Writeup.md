@@ -200,3 +200,23 @@ I developed an exploit using the **pwntools** library to target the vulnerabilit
     * Finally, I sent the crafted payload to the server, triggering the overflow and executing the reverse shell. I maintained an interactive session with the target, gaining full control over the device.
 
 This approach effectively exploited both the **format string vulnerability** and the **stack buffer overflow**, leading to full remote code execution on the vulnerable application.
+
+### Establishing Connection
+
+For the first step, we are going to connect to port **6000** using **pwntools**. This allows us to interact with the vulnerable application running on the server. Here’s the code snippet for establishing the connection and receiving the welcome message:
+
+```python
+from pwn import *
+import struct
+
+conn = remote('localhost', 6000)
+
+welcome_message = conn.recvuntil(b"Welcome to Damn Exploitable Android App!")
+print(f"Received: {welcome_message.decode()}")
+```
+
+In this code:
+* `remote('localhost', 6000)` establishes the connection to the application running on port 6000.
+* We use `recvuntil` to receive and display the welcome message, confirming that the connection is successful and ready for further interaction.
+
+This sets up the initial communication with the server before moving on to exploiting the vulnerabilities.
