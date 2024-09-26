@@ -224,7 +224,7 @@ This sets up the initial communication with the server before moving on to explo
 
 In the second step, the goal is to leak an address from the **stack region**. Why is this important? Leaking a stack address helps us locate the **top of the stack**, which will be crucial later when pointing to the arguments for the `system()` call.
 
-### Why Bother with This?
+#### Why Bother with This?
 
 We need to perform this stack leak because modern security mechanisms, like **stack canaries**, **NX**, and **RELRO**, make it difficult to exploit vulnerabilities directly. These protections are designed to prevent traditional exploitation methods. However, by leaking memory through the **format string vulnerability**, we can gather enough information to bypass these defenses and continue with our exploit.
 
