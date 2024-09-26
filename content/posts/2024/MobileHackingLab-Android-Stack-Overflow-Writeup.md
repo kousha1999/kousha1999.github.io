@@ -124,3 +124,23 @@ adb forward tcp:6000 tcp:6000
 By doing this, we can interact with the application locally as if it were running on the same machine, allowing us to send and receive data directly through `localhost:6000`.
 
 ![frida-trace](https://github.com/user-attachments/assets/3f11701b-1151-4f55-9574-61aade55f9f2)
+
+## Testing for Vulnerabilities
+
+Now, it's time to conduct some tests to confirm the vulnerabilities in the application. I will use `%x` as input to examine how `snprintf` behaves and to verify if it is indeed vulnerable to format string attacks.
+
+### Verifying Format String Vulnerability
+
+By sending this input, we can observe how the application handles formatted data and if any unintended information is leaked, indicating a format string vulnerability.
+
+![memoryLeak Format String](https://github.com/user-attachments/assets/e4826074-8a35-4d75-a85a-dc5be2982f6d)
+
+### Verifying Stack Overflow Vulnerability
+
+Having confirmed the format string vulnerability, the next step is to check if the application is also vulnerable to stack overflow. 
+
+To do this, I will send a payload that exceeds the buffer size in the `cp()` function. By crafting an input larger than the 200-byte limit, we can observe if the application crashes or behaves unexpectedly, indicating a successful stack overflow.
+
+Let's proceed with this test and analyze the results.
+
+![overFlow Test](https://github.com/user-attachments/assets/a11b40e4-968a-46f3-9a4f-aaf1b01ab59b)
