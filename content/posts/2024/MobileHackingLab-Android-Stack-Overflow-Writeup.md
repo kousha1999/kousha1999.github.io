@@ -3,7 +3,7 @@ title: "Android Stack Overflow Exploitation (ARMv7) - MobileHackingLab"
 date: "2024-09-26T19:00:00+02:00"
 author: "Kousha Zanjani"
 image: https://github.com/user-attachments/assets/6a598d4e-8425-431d-af16-05b2810a37f8
-description: My journey into Android exploitation at the binary level started with a deep passion for the subject. I was determined to simplify the process as much as possible, but it turne>
+description: In this post, we explore an Android Stack Overflow vulnerability within a server-client chat messaging application. By analyzing the native code and leveraging vulnerabilities such as format string and stack buffer overflow, we develop an exploit using pwntools to gain control of the target system. Throughout the process, we also examine security features like RELRO, stack canaries, and NX to understand the defenses in place and how to bypass them.
 showFullContent: false
 tags: ["Android", "Exploitation", "ExploitDevelopment", "ReverseEngineering", "MobileHackingLab"]
 keywords: ["Android", "Exploitation", "ExploitDevelopment", "ReverseEngineering", "MobileHackingLab"]
