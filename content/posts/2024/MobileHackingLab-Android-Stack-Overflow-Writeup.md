@@ -181,22 +181,22 @@ These security features indicate a robust defense against common vulnerabilities
 
 I developed an exploit using the **pwntools** library to target the vulnerabilities identified in the Android application running on port 6000. The approach involved the following steps:
 
-1. Establishing Connection
+1. **Establishing Connection**
     * I started by establishing a connection to the application using a client-server model. The application was running locally after forwarding port 6000, which allowed me to communicate with the vulnerable server.
 
-2. Leaking the Stack Address
+2. **Leaking the Stack Address**
     * Using the format string vulnerability, I was able to leak a stack address. This provided insight into the memory layout and helped me identify key memory addresses necessary for building the exploit.
 
-3. Leaking the Libc Address
+3. **Leaking the Libc Address**
     * Next, I used the same format string vulnerability to leak a **libc** address. The **libc** base address is crucial for calculating the locations of important functions like `system()`, which I used later in the exploit.
 
-4. Calculating Gadgets and System Call
+4. **Calculating Gadgets and System Call**
     * Once the **libc** base address was identified, I calculated the offsets for useful gadgets, such as **pop r0, pc**, and determined the address for the `system()` function. Additionally, I prepared the arguments for `system()` to execute a reverse shell.
 
-5. Crafting the Exploit Payload
+5. **Crafting the Exploit Payload**
     * I then crafted the payload to exploit the **stack buffer overflow** vulnerability. This payload included the necessary padding, followed by the memory addresses of the gadgets and the `system()` call, along with the arguments.
 
-6. Executing the Exploit
+6. **Executing the Exploit**
     * Finally, I sent the crafted payload to the server, triggering the overflow and executing the reverse shell. I maintained an interactive session with the target, gaining full control over the device.
 
 This approach effectively exploited both the **format string vulnerability** and the **stack buffer overflow**, leading to full remote code execution on the vulnerable application.
