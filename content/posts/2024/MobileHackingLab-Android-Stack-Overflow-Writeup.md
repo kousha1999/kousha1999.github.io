@@ -2,7 +2,7 @@
 title: "Android Stack Overflow Exploitation (ARMv7) - MobileHackingLab"
 date: "2024-09-26T19:00:00+02:00"
 author: "Kousha Zanjani"
-image: https://github.com/user-attachments/assets/811fd4af-b424-4396-a85e-8513d60c947a
+image: https://github.com/user-attachments/assets/6a598d4e-8425-431d-af16-05b2810a37f8
 description: My journey into Android exploitation at the binary level started with a deep passion for the subject. I was determined to simplify the process as much as possible, but it turne>
 showFullContent: false
 tags: ["Android", "Exploitation", "ExploitDevelopment", "ReverseEngineering", "MobileHackingLab"]
