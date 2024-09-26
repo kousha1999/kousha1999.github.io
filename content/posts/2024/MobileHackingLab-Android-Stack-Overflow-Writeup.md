@@ -201,13 +201,12 @@ I developed an exploit using the **pwntools** library to target the vulnerabilit
 
 This approach effectively exploited both the **format string vulnerability** and the **stack buffer overflow**, leading to full remote code execution on the vulnerable application.
 
-### Establishing Connection
+### 1. Establishing Connection
 
 For the first step, we are going to connect to port **6000** using **pwntools**. This allows us to interact with the vulnerable application running on the server. Here’s the code snippet for establishing the connection and receiving the welcome message:
 
 ```python
 from pwn import *
-import struct
 
 conn = remote('localhost', 6000)
 
