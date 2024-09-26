@@ -144,3 +144,35 @@ To do this, I will send a payload that exceeds the buffer size in the `cp()` fun
 Let's proceed with this test and analyze the results.
 
 ![overFlow Test](https://github.com/user-attachments/assets/a11b40e4-968a-46f3-9a4f-aaf1b01ab59b)
+
+## Analyzing Security Features
+
+To understand the security posture of the application, I ran a check on the native library `libnative-lib.so` to see what kind of security mechanisms are in place. Here are the results:
+
+```sh
+$ checksec libnative-lib.so
+[*] '/home/kousha/Desktop/tools/frida/bof/blog-files/apktool-out/lib/armeabi-v7a/libnative-lib.so'
+    Arch:     arm-32-little
+    RELRO:    Full RELRO
+    Stack:    Canary found
+    NX:       NX enabled
+    PIE:      PIE enabled
+```
+### Security Features Explained
+
+* Arch: `arm-32-little`
+    * This indicates that the architecture of the library is ARM 32-bit, which is commonly used in Android devices.
+
+* RELRO (Read-Only Relocations): `Full RELRO`
+    * This means that the library uses full RELRO, making it harder for attackers to exploit memory corruption vulnerabilities related to Global Offset Table (GOT) entries. It prevents modifications to the GOT during runtime.
+
+* Stack Protection: `Canary found`
+    * The presence of a stack canary indicates that the application employs stack protection. This mechanism helps to detect stack buffer overflows by placing a known value (the canary) before the return address on the stack. If this value is altered during a buffer overflow, the program can detect the attack and terminate.
+
+* NX (No eXecute): `NX enabled`
+    * NX (or DEP - Data Execution Prevention) prevents execution of code in certain regions of memory (like the stack). This mitigates the risk of executing shellcode injected through a buffer overflow.
+
+* PIE (Position Independent Executable): `PIE enabled`
+    * PIE allows the application to be loaded at random addresses in memory, making it more difficult for an attacker to predict the location of specific functions or buffers, thus enhancing security against certain types of exploits.
+
+These security features indicate a robust defense against common vulnerabilities, but the presence of vulnerabilities like format string and potential stack overflow suggests that additional care must be taken to secure the application.
